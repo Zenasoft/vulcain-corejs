@@ -67,9 +67,8 @@ gulp.task("typedoc", function () {
             "module": "commonjs",
             "moduleResolution": "node",
             "target": "es6",
-
             out: "docs/",
-            name: "My project title"
+            name: "Vulcain corejs"
         }))
         ;
 });
