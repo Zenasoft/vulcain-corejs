@@ -171,8 +171,8 @@ export class ExpressAdapter extends AbstractAdapter {
             }
             res.statusCode = result.code || ctx.responseCode || 200;
 
-            if (ctx.responseCustom) {
-                res.send(ctx.responseCustom);
+            if (ctx.isResponseCustom) {
+                res.send(result.value.value);
             } else {
                 res.send(result.value);
             }

@@ -109,9 +109,9 @@ export class RequestContext {
     /**
      * Use to override default response.
      *
-     * @type {any}
+     * @type {boolean}
      */
-    public responseCustom: any;
+    public isResponseCustom: boolean;
 
 
 

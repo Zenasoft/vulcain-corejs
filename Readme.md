@@ -7,5 +7,6 @@ On the requestContext you can send a custom response.
 ```
 this.requestContext.addHeader("Content-Type", 'application/vnd.ms-excel' );
 this.requestContext.addHeader('Content-disposition', 'attachment; filename=file.xlsx' );
-this.requestContext.responseCustom = fileExcel;
+this.requestContext.isResponseCustom = true;
+return myObject;
 ```
