@@ -4,6 +4,7 @@ import {Validator} from './validator'
 import {IContainer} from '../di/resolvers';
 import {SchemaVisitor} from './visitor';
 import {System} from 'vulcain-configurationsjs';
+import { PropertyOptions } from './annotations';
 
 /**
  * Schema definition
@@ -272,7 +273,7 @@ export class Domain
             obj = schema.bind( origin );
         }
 
-        obj                = obj || origin;
+        obj = obj || origin;
         if (typeof obj !== "object")
             return obj;
 
@@ -282,7 +283,7 @@ export class Domain
         for( const ps in schema.properties )
         {
             if( !schema.properties.hasOwnProperty( ps ) ) continue;
-            let prop = schema.properties[ps];
+            let prop: PropertyOptions = schema.properties[ps];
             if( prop )
             {
                 try
@@ -293,7 +294,9 @@ export class Domain
                     if( val !== undefined )
                     {
                         obj[ps] = val;
-                        // obj.isModified[ps] = true;
+                    }
+                    else if(prop.defaultValue !== undefined) {
+                        obj[ps] = prop.defaultValue;
                     }
                 }
                 catch( e )

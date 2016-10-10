@@ -11,6 +11,7 @@ import {CommandRuntimeError} from '../commands/command/command';
 import {EventHandlerFactory} from './eventHandlerFactory';
 import {LifeTime} from '../di/annotations';
 import {Conventions} from '../utils/conventions';
+import { ServiceDescriptors } from './serviceDescriptions';
 const guid = require('node-uuid');
 
 export interface ActionData extends CommonRequestData {
@@ -23,6 +24,7 @@ export interface ActionData extends CommonRequestData {
 }
 
 export interface ConsumeEventMetadata {
+    description: string;
     subscribeToDomain?: string;
     subscribeToAction?: string;
     subscribeToSchema?: string;
@@ -77,8 +79,8 @@ export class CommandManager implements IManager {
     private _hostname: string;
     private _service: string;
     private _initialized = false;
+    private _serviceDescriptors: ServiceDescriptors;
 
-    static commandHandlersFactory = new HandlerFactory();
     static eventHandlersFactory = new EventHandlerFactory();
 
     /**
@@ -156,13 +158,16 @@ export class CommandManager implements IManager {
         return errors;
     }
 
-    getMetadata(command: CommonRequestData) {
-        let info = CommandManager.commandHandlersFactory.getInfo<ActionMetadata>(null, command.domain, command.schema, command.action);
-        return info.metadata;
+    getInfoHandler(command: CommonRequestData, container?:IContainer) {
+        if (!this._serviceDescriptors) {
+            this._serviceDescriptors = this.container.get<ServiceDescriptors>(DefaultServiceNames.ServiceDescriptors);
+        }
+        let info = this._serviceDescriptors.getHandlerInfo<ActionMetadata>(container, command.schema, command.action);
+        return info;
     }
 
     async runAsync(command: ActionData, ctx: RequestContext) {
-        let info = CommandManager.commandHandlersFactory.getInfo<ActionHandlerMetadata>(ctx.container, command.domain, command.schema, command.action);
+        let info = this.getInfoHandler(command, ctx.container);
         let eventMode = info.metadata.eventMode || EventNotificationMode.successOnly;
         System.log.write(ctx, { RunAction: command });
         try {
@@ -178,7 +183,7 @@ export class CommandManager implements IManager {
             command.userContext = ctx.user || <any>{};
 
             // Register asynchronous task
-            if (!(<ActionHandlerMetadata>info.metadata).async) {
+            if (!info.metadata.async) {
 
                 info.handler.requestContext = ctx;
                 info.handler.command = command;
@@ -209,7 +214,7 @@ export class CommandManager implements IManager {
         ctx.correlationPath = "event-";
         System.log.write(ctx, { runEvent: command });
 
-        let info = CommandManager.commandHandlersFactory.getInfo<ActionMetadata>(ctx.container, command.domain, command.schema, command.action);
+        let info = this.getInfoHandler(command, ctx.container);
         let eventMode = info.metadata.eventMode || EventNotificationMode.always;
 
         let res;

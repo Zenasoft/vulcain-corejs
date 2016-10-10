@@ -161,6 +161,7 @@ export class ExpressAdapter extends AbstractAdapter {
             ctx.correlationPath = req.headers["X-VULCAIN-CORRELATION-PATH"] || "-";
             ctx.tenant = (ctx.user && ctx.user.tenant) || req.headers["X-VULCAIN-TENANT"] || process.env[Conventions.instance.ENV_TENANT] || RequestContext.TestTenant;
             ctx.requestHeaders = req.headers;
+            ctx.hostName = req.hostname;
 
             let result = await handler.apply(this, [command, ctx]);
             if (ctx.getResponseHeaders()) {
@@ -181,7 +182,8 @@ export class ExpressAdapter extends AbstractAdapter {
         catch (e) {
             let result = command;
             result.error = { message: e.message || e };
-            res.status(500).send({ error: e.message || e });
+            res.status(e.statusCode || 500);
+            res.send({ error: { message: e.message || e, errors: e.errors } });
             this.endRequest(begin, result, ctx, e);
         }
         finally {

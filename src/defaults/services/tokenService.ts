@@ -16,7 +16,7 @@ export class TokenService implements ITokenService {
     // https://github.com/rauchg/ms.js
     private tokenExpiration:string;
 
-    constructor(@Inject( "Container" ) private container)
+    constructor()
     {
         this.issuer= process.env[Conventions.instance.ENV_TOKEN_ISSUER];
         this.tokenExpiration= process.env[Conventions.instance.ENV_TOKEN_EXPIRATION] || "20m";

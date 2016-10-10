@@ -13,6 +13,7 @@ import {Pipeline} from '../../servers/requestContext';
 import {ActionResponse} from '../../pipeline/actions';
 import {QueryResponse} from '../../pipeline/query';
 import {ValidationError, ErrorResponse} from '../../pipeline/common';
+import { ProviderFactory } from './../../providers/providerFactory';
 
 /**
  *
@@ -35,7 +36,7 @@ export class ApplicationRequestError extends Error {
      *
      * @param {ErrorResponse} error
      */
-    constructor(error: ErrorResponse) {
+    constructor(error: ErrorResponse, public statusCode=500) {
         super((error && error.message) || "Unknow error");
         this.errors = error && error.errors;
     }
@@ -158,7 +159,7 @@ export abstract class AbstractCommand<T> {
      * @param {IContainer} container
      * @param {any} providerFactory
      */
-    constructor( @Inject(DefaultServiceNames.Container) protected container: IContainer, @Inject(DefaultServiceNames.ProviderFactory) private providerFactory) { }
+    constructor( @Inject(DefaultServiceNames.Container) protected container: IContainer, @Inject(DefaultServiceNames.ProviderFactory) private providerFactory: ProviderFactory) { }
 
     /**
      *
@@ -168,7 +169,7 @@ export abstract class AbstractCommand<T> {
     setSchema(schema: string) {
         if (schema && !this.provider) {
             this.schema = this.container.get<Domain>(DefaultServiceNames.Domain).getSchema(schema);
-            this.provider = this.providerFactory.getProvider(this.requestContext.tenant, this.schema);
+            this.provider = this.providerFactory.getProvider(this.container, this.requestContext.tenant, this.schema);
         }
     }
 

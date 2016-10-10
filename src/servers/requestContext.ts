@@ -105,13 +105,6 @@ export class RequestContext {
      */
     public responseCode: number;
 
-    /**
-     * Use to override default response.
-     *
-     * @type {boolean}
-     */
-    // public isResponseCustom:boolean;
-
 
     /**
      * Use to override default response.
@@ -128,6 +121,14 @@ export class RequestContext {
      * @type {string}
      */
     public tenant: string;
+
+    /**
+     * Request host name
+     *
+     * @type {string}
+     * @memberOf RequestContext
+     */
+    public hostName: string;
 
     /**
      * Do not use

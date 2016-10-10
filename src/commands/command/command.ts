@@ -53,7 +53,7 @@ export class HystrixCommand {
     }
 
     setSchemaOnCommand(schema: string) {
-        if (schema)
+        if (schema && this.command.setSchema)
             this.command.setSchema(schema);
     }
 

@@ -51,7 +51,7 @@ export class MongoProvider implements IProvider<any>
                 .then(db => {
                     this._logger.info(this.ctx, "MONGODB: creating unique index");
                     let indexName = schema.description.storageName + "_uniqueIndex";
-                    db.createIndex(schema.name, keys, { w: 1, background: true, name: indexName, unique: true })
+                    db.createIndex(schema.description.storageName, keys, { w: 1, background: true, name: indexName, unique: true })
                         .catch(err => {
                             this._logger.error(null, err);
                         });

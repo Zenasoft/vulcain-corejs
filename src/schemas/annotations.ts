@@ -36,6 +36,7 @@ export interface PropertyOptions {
     dependsOn?: (entity) => boolean;
     validate?: (val) => string;
     sensible?: boolean;
+    defaultValue?;
 }
 
 export function Property(info:PropertyOptions) {

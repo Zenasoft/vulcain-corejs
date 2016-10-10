@@ -43,7 +43,9 @@ export abstract class AbstractAdapter {
         return process.hrtime();
     }
 
-    protected endRequest(begin: number[], response, ctx:RequestContext, e?: Error) {
+    protected endRequest(begin: number[], response, ctx: RequestContext, e?: Error) {
+        if (!response.value)
+            return;
         const ms = this.calcDelayInMs(begin);
         let prefix = "";
         if (response.value.schema)
@@ -103,7 +105,7 @@ export abstract class AbstractAdapter {
 
             try {
                 // Check if handler exists
-                let metadata = <ActionMetadata>manager.getMetadata(command);
+                let metadata = <ActionMetadata>manager.getInfoHandler(command);
                 if (!ctx.user && this.testUser) {
                     ctx.user = this.testUser;
                     ctx.user.tenant = ctx.tenant;

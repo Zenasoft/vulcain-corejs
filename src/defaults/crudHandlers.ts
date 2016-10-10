@@ -95,7 +95,7 @@ export class DefaultActionHandler extends AbstractActionHandler {
         super(container);
     }
 
-    @Action({ action: "create" })
+    @Action({ action: "create", description: "Create a new entity" })
     createAsync(entity: any) {
         if (!entity)
             throw new Error("Entity is required");
@@ -103,7 +103,7 @@ export class DefaultActionHandler extends AbstractActionHandler {
         return cmd.executeAsync( "create", entity);
     }
 
-    @Action({ action: "update" })
+    @Action({ action: "update", description: "Update an entity" })
     updateAsync(entity: any) {
         if (!entity)
             throw new Error("Entity is required");
@@ -111,7 +111,7 @@ export class DefaultActionHandler extends AbstractActionHandler {
         return cmd.executeAsync( "update", entity);
     }
 
-    @Action({ action: "delete" })
+    @Action({ action: "delete", description: "Delete an entity" })
     deleteAsync(entity: any) {
         if (!entity)
             throw new Error("Entity is required");
@@ -131,13 +131,13 @@ export class DefaultQueryHandler<T> extends AbstractQueryHandler {
         return this.requestContext.getCommand("DefaultRepositoryCommand", this.metadata.schema);
     }
 
-    @Query({ action: "get" })
+    @Query({ action: "get", description: "Get an entity by id" })
     getAsync(id: any) {
         let cmd = this.getDefaultCommand();
         return <Promise<T>>cmd.executeAsync("get", id);
     }
 
-    @Query({ action: "all" })
+    @Query({ action: "all", description: "Get all entities" })
     getAllAsync(query?: any, maxByPage:number=0, page?:number) : Promise<Array<T>> {
         let options = { maxByPage: maxByPage || this.query && this.query.maxByPage || -1, page: page || this.query && this.query.page || 0, query:query || {} };
         let cmd = this.getDefaultCommand();

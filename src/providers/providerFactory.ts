@@ -15,7 +15,7 @@ export class ProviderFactory
     private pool = new Map<string, PoolItem>();
     private states = new Map<string, any>();
 
-    constructor(@Inject(DefaultServiceNames.Container) private container:IContainer, public maxPoolSize = 20, public maxStatesSize=1000) {
+    constructor( public maxPoolSize = 20, public maxStatesSize=1000) {
     }
 
     private addToPool(key: string, provider: IProvider<any>) {
@@ -51,11 +51,11 @@ export class ProviderFactory
         this.states.set(key, state);
     }
 
-    getProvider(tenant: string, schema: Schema) {
+    getProvider(container: IContainer, tenant: string, schema: Schema) {
         let key = tenant + "!" + schema.name;
         let provider = this.getFromPool(key);
         if (!provider) {
-            provider = this.container.get<IProvider<any>>(DefaultServiceNames.Provider, false, LifeTime.Transient|LifeTime.Scoped);
+            provider = container.get<IProvider<any>>(DefaultServiceNames.Provider, false, LifeTime.Transient|LifeTime.Scoped);
             let state = this.states.get(key);
             if (state)
                 (<any>provider).state = state;
