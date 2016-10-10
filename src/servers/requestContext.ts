@@ -1,9 +1,9 @@
-import {VulcainLogger} from 'vulcain-configurationsjs';
-import {Container} from '../di/containers';
-import {IContainer} from '../di/resolvers';
-import {CommandFactory} from '../commands/command/commandFactory';
-import {ICommand} from '../commands/command/abstractCommand'
-import {DefaultServiceNames} from '../di/annotations';
+import { VulcainLogger } from 'vulcain-configurationsjs';
+import { Container } from '../di/containers';
+import { IContainer } from '../di/resolvers';
+import { CommandFactory } from '../commands/command/commandFactory';
+import { ICommand } from '../commands/command/abstractCommand'
+import { DefaultServiceNames } from '../di/annotations';
 
 export enum Pipeline {
     EventNotification,
@@ -44,7 +44,7 @@ export interface Logger {
      * @param {...Array<string>} params Message parameters
      *
      */
-    info(ctx: RequestContext,  msg: string, ...params: Array<any>);
+    info(ctx: RequestContext, msg: string, ...params: Array<any>);
 
     /**
      * Log a verbose message. Verbose message are enable by service configuration property : enableVerboseLog
@@ -54,7 +54,7 @@ export interface Logger {
      * @param {...Array<string>} params Message parameters
      *
      */
-    verbose(ctx: RequestContext,  msg: string, ...params: Array<any>);
+    verbose(ctx: RequestContext, msg: string, ...params: Array<any>);
 }
 
 /**
@@ -104,6 +104,24 @@ export class RequestContext {
      * @type {number}
      */
     public responseCode: number;
+
+    /**
+     * Use to override default response.
+     *
+     * @type {boolean}
+     */
+    // public isResponseCustom:boolean;
+
+
+    /**
+     * Use to override default response.
+     *
+     * @type {any}
+     */
+    public responseCustom: any;
+
+
+
     /**
      * Current tenant
      *
