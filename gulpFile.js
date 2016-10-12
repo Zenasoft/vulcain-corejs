@@ -41,8 +41,6 @@ gulp.task("compile-test", ['compile-ts'], function () {
     ])
         .pipe(sourcemaps.init())
         .pipe(ts(tsProject));
-
-<<<<<<< HEAD
     return tsResult.js
         .pipe(sourcemaps.write('.', { includeContent: false, sourceRoot: rootDir + "/test" }))
         .pipe(gulp.dest("dist-test/"));

@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>ReferenceOptions | Vulcain corejs</title>
+	<title>SchemaDescription | Vulcain corejs</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -57,13 +57,13 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="../modules/_schemas_annotations_.html">&quot;schemas/annotations&quot;</a>
+					<a href="../modules/_schemas_schema_.html">&quot;schemas/schema&quot;</a>
 				</li>
 				<li>
-					<a href="_schemas_annotations_.referenceoptions.html">ReferenceOptions</a>
+					<a href="_schemas_schema_.schemadescription.html">SchemaDescription</a>
 				</li>
 			</ul>
-			<h1>Interface ReferenceOptions</h1>
+			<h1>Interface SchemaDescription</h1>
 		</div>
 	</div>
 </header>
@@ -74,7 +74,7 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">ReferenceOptions</span>
+						<span class="target">SchemaDescription</span>
 					</li>
 				</ul>
 			</section>
@@ -85,15 +85,15 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_schemas_annotations_.referenceoptions.html#bind" class="tsd-kind-icon">bind</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_schemas_annotations_.referenceoptions.html#cardinality" class="tsd-kind-icon">cardinality</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_schemas_annotations_.referenceoptions.html#dependson" class="tsd-kind-icon">depends<wbr>On</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_schemas_annotations_.referenceoptions.html#description" class="tsd-kind-icon">description</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_schemas_annotations_.referenceoptions.html#item" class="tsd-kind-icon">item</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_schemas_annotations_.referenceoptions.html#required" class="tsd-kind-icon">required</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_schemas_annotations_.referenceoptions.html#type" class="tsd-kind-icon">type</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_schemas_annotations_.referenceoptions.html#validate" class="tsd-kind-icon">validate</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_schemas_annotations_.referenceoptions.html#validators" class="tsd-kind-icon">validators</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_schemas_schema_.schemadescription.html#bind" class="tsd-kind-icon">bind</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_schemas_schema_.schemadescription.html#extends" class="tsd-kind-icon">extends</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_schemas_schema_.schemadescription.html#hassensibledata" class="tsd-kind-icon">has<wbr>Sensible<wbr>Data</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_schemas_schema_.schemadescription.html#idproperty" class="tsd-kind-icon">id<wbr>Property</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_schemas_schema_.schemadescription.html#name" class="tsd-kind-icon">name</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_schemas_schema_.schemadescription.html#properties" class="tsd-kind-icon">properties</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_schemas_schema_.schemadescription.html#references" class="tsd-kind-icon">references</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_schemas_schema_.schemadescription.html#storagename" class="tsd-kind-icon">storage<wbr>Name</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_schemas_schema_.schemadescription.html#validate" class="tsd-kind-icon">validate</a></li>
 							</ul>
 						</section>
 					</div>
@@ -104,30 +104,10 @@
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="bind" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagOptional">Optional</span> bind</h3>
-					<div class="tsd-signature tsd-kind-icon">bind<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span></div>
+					<div class="tsd-signature tsd-kind-icon">bind<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/workfel/vulcain-corejs/blob/a1b9924/src/schemas/annotations.ts#L149">schemas/annotations.ts:149</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="cardinality" class="tsd-anchor"></a>
-					<h3>cardinality</h3>
-					<div class="tsd-signature tsd-kind-icon">cardinality<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"one"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"many"</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/workfel/vulcain-corejs/blob/a1b9924/src/schemas/annotations.ts#L146">schemas/annotations.ts:146</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="dependson" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> depends<wbr>On</h3>
-					<div class="tsd-signature tsd-kind-icon">depends<wbr>On<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/workfel/vulcain-corejs/blob/a1b9924/src/schemas/annotations.ts#L150">schemas/annotations.ts:150</a></li>
+							<li>Defined in <a href="https://github.com/workfel/vulcain-corejs/blob/a1b9924/src/schemas/schema.ts#L24">schemas/schema.ts:24</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
@@ -135,17 +115,17 @@
 						<ul class="tsd-parameters">
 							<li class="tsd-parameter-siganture">
 								<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-property tsd-is-not-exported">
-									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>entity<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>obj<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
 								</ul>
 								<ul class="tsd-descriptions">
 									<li class="tsd-description">
 										<h4 class="tsd-parameters-title">Parameters</h4>
 										<ul class="tsd-parameters">
 											<li>
-												<h5>entity: <span class="tsd-signature-type">any</span></h5>
+												<h5>obj: <span class="tsd-signature-type">any</span></h5>
 											</li>
 										</ul>
-										<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+										<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
 									</li>
 								</ul>
 							</li>
@@ -153,42 +133,88 @@
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="description" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> description</h3>
-					<div class="tsd-signature tsd-kind-icon">description<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<a name="extends" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> extends</h3>
+					<div class="tsd-signature tsd-kind-icon">extends<span class="tsd-signature-symbol">:</span> <a href="_schemas_schema_.schemadescription.html" class="tsd-signature-type">SchemaDescription</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/workfel/vulcain-corejs/blob/a1b9924/src/schemas/annotations.ts#L148">schemas/annotations.ts:148</a></li>
+							<li>Defined in <a href="https://github.com/workfel/vulcain-corejs/blob/a1b9924/src/schemas/schema.ts#L22">schemas/schema.ts:22</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="item" class="tsd-anchor"></a>
-					<h3>item</h3>
-					<div class="tsd-signature tsd-kind-icon">item<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<a name="hassensibledata" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> has<wbr>Sensible<wbr>Data</h3>
+					<div class="tsd-signature tsd-kind-icon">has<wbr>Sensible<wbr>Data<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/workfel/vulcain-corejs/blob/a1b9924/src/schemas/annotations.ts#L145">schemas/annotations.ts:145</a></li>
+							<li>Defined in <a href="https://github.com/workfel/vulcain-corejs/blob/a1b9924/src/schemas/schema.ts#L23">schemas/schema.ts:23</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="required" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> required</h3>
-					<div class="tsd-signature tsd-kind-icon">required<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<a name="idproperty" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> id<wbr>Property</h3>
+					<div class="tsd-signature tsd-kind-icon">id<wbr>Property<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/workfel/vulcain-corejs/blob/a1b9924/src/schemas/annotations.ts#L147">schemas/annotations.ts:147</a></li>
+							<li>Defined in <a href="https://github.com/workfel/vulcain-corejs/blob/a1b9924/src/schemas/schema.ts#L27">schemas/schema.ts:27</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="type" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> type</h3>
-					<div class="tsd-signature tsd-kind-icon">type<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<a name="name" class="tsd-anchor"></a>
+					<h3>name</h3>
+					<div class="tsd-signature tsd-kind-icon">name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/workfel/vulcain-corejs/blob/a1b9924/src/schemas/annotations.ts#L153">schemas/annotations.ts:153</a></li>
+							<li>Defined in <a href="https://github.com/workfel/vulcain-corejs/blob/a1b9924/src/schemas/schema.ts#L19">schemas/schema.ts:19</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="properties" class="tsd-anchor"></a>
+					<h3>properties</h3>
+					<div class="tsd-signature tsd-kind-icon">properties<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/workfel/vulcain-corejs/blob/a1b9924/src/schemas/schema.ts#L20">schemas/schema.ts:20</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-type-declaration">
+						<h4>Type declaration</h4>
+						<ul class="tsd-parameters">
+							<li class="tsd-parameter-index-signature">
+								<h5><span class="tsd-signature-symbol">[</span>index: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">]: </span><a href="_schemas_annotations_.propertyoptions.html" class="tsd-signature-type">PropertyOptions</a></h5>
+							</li>
+						</ul>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="references" class="tsd-anchor"></a>
+					<h3>references</h3>
+					<div class="tsd-signature tsd-kind-icon">references<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/workfel/vulcain-corejs/blob/a1b9924/src/schemas/schema.ts#L21">schemas/schema.ts:21</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-type-declaration">
+						<h4>Type declaration</h4>
+						<ul class="tsd-parameters">
+							<li class="tsd-parameter-index-signature">
+								<h5><span class="tsd-signature-symbol">[</span>index: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">]: </span><a href="_schemas_annotations_.referenceoptions.html" class="tsd-signature-type">ReferenceOptions</a></h5>
+							</li>
+						</ul>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="storagename" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> storage<wbr>Name</h3>
+					<div class="tsd-signature tsd-kind-icon">storage<wbr>Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/workfel/vulcain-corejs/blob/a1b9924/src/schemas/schema.ts#L26">schemas/schema.ts:26</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -198,7 +224,7 @@
 					<div class="tsd-signature tsd-kind-icon">validate<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/workfel/vulcain-corejs/blob/a1b9924/src/schemas/annotations.ts#L151">schemas/annotations.ts:151</a></li>
+							<li>Defined in <a href="https://github.com/workfel/vulcain-corejs/blob/a1b9924/src/schemas/schema.ts#L25">schemas/schema.ts:25</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
@@ -206,7 +232,7 @@
 						<ul class="tsd-parameters">
 							<li class="tsd-parameter-siganture">
 								<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-property tsd-is-not-exported">
-									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>val<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>val<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, Container<span class="tsd-signature-symbol">: </span><a href="_di_resolvers_.icontainer.html" class="tsd-signature-type">IContainer</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
 								</ul>
 								<ul class="tsd-descriptions">
 									<li class="tsd-description">
@@ -215,6 +241,9 @@
 											<li>
 												<h5>val: <span class="tsd-signature-type">any</span></h5>
 											</li>
+											<li>
+												<h5>Container: <a href="_di_resolvers_.icontainer.html" class="tsd-signature-type">IContainer</a></h5>
+											</li>
 										</ul>
 										<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
 									</li>
@@ -222,16 +251,6 @@
 							</li>
 						</ul>
 					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="validators" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> validators</h3>
-					<div class="tsd-signature tsd-kind-icon">validators<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/workfel/vulcain-corejs/blob/a1b9924/src/schemas/annotations.ts#L152">schemas/annotations.ts:152</a></li>
-						</ul>
-					</aside>
 				</section>
 			</section>
 		</div>
@@ -242,66 +261,57 @@
 						<a href="../globals.html"><em>Globals</em></a>
 					</li>
 					<li class="current tsd-kind-external-module">
-						<a href="../modules/_schemas_annotations_.html">"schemas/annotations"</a>
+						<a href="../modules/_schemas_schema_.html">"schemas/schema"</a>
 					</li>
 				</ul>
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
-					<li class=" tsd-kind-interface tsd-parent-kind-external-module">
-						<a href="_schemas_annotations_.modeloptions.html" class="tsd-kind-icon">Model<wbr>Options</a>
+					<li class=" tsd-kind-class tsd-parent-kind-external-module">
+						<a href="../classes/_schemas_schema_.domain.html" class="tsd-kind-icon">Domain</a>
+					</li>
+					<li class=" tsd-kind-class tsd-parent-kind-external-module">
+						<a href="../classes/_schemas_schema_.schema.html" class="tsd-kind-icon">Schema</a>
 					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-external-module">
-						<a href="_schemas_annotations_.propertyoptions.html" class="tsd-kind-icon">Property<wbr>Options</a>
+						<a href="_schemas_schema_.errormessage.html" class="tsd-kind-icon">Error<wbr>Message</a>
 					</li>
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-interface tsd-parent-kind-external-module">
-						<a href="_schemas_annotations_.referenceoptions.html" class="tsd-kind-icon">Reference<wbr>Options</a>
+						<a href="_schemas_schema_.schemadescription.html" class="tsd-kind-icon">Schema<wbr>Description</a>
 						<ul>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="_schemas_annotations_.referenceoptions.html#bind" class="tsd-kind-icon">bind</a>
+								<a href="_schemas_schema_.schemadescription.html#bind" class="tsd-kind-icon">bind</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="_schemas_annotations_.referenceoptions.html#cardinality" class="tsd-kind-icon">cardinality</a>
+								<a href="_schemas_schema_.schemadescription.html#extends" class="tsd-kind-icon">extends</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="_schemas_annotations_.referenceoptions.html#dependson" class="tsd-kind-icon">depends<wbr>On</a>
+								<a href="_schemas_schema_.schemadescription.html#hassensibledata" class="tsd-kind-icon">has<wbr>Sensible<wbr>Data</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="_schemas_annotations_.referenceoptions.html#description" class="tsd-kind-icon">description</a>
+								<a href="_schemas_schema_.schemadescription.html#idproperty" class="tsd-kind-icon">id<wbr>Property</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="_schemas_annotations_.referenceoptions.html#item" class="tsd-kind-icon">item</a>
+								<a href="_schemas_schema_.schemadescription.html#name" class="tsd-kind-icon">name</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="_schemas_annotations_.referenceoptions.html#required" class="tsd-kind-icon">required</a>
+								<a href="_schemas_schema_.schemadescription.html#properties" class="tsd-kind-icon">properties</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="_schemas_annotations_.referenceoptions.html#type" class="tsd-kind-icon">type</a>
+								<a href="_schemas_schema_.schemadescription.html#references" class="tsd-kind-icon">references</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="_schemas_annotations_.referenceoptions.html#validate" class="tsd-kind-icon">validate</a>
+								<a href="_schemas_schema_.schemadescription.html#storagename" class="tsd-kind-icon">storage<wbr>Name</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="_schemas_annotations_.referenceoptions.html#validators" class="tsd-kind-icon">validators</a>
+								<a href="_schemas_schema_.schemadescription.html#validate" class="tsd-kind-icon">validate</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
-					<li class=" tsd-kind-function tsd-parent-kind-external-module">
-						<a href="../modules/_schemas_annotations_.html#model" class="tsd-kind-icon">Model</a>
-					</li>
-					<li class=" tsd-kind-function tsd-parent-kind-external-module">
-						<a href="../modules/_schemas_annotations_.html#property" class="tsd-kind-icon">Property</a>
-					</li>
-					<li class=" tsd-kind-function tsd-parent-kind-external-module">
-						<a href="../modules/_schemas_annotations_.html#reference" class="tsd-kind-icon">Reference</a>
-					</li>
-					<li class=" tsd-kind-function tsd-parent-kind-external-module">
-						<a href="../modules/_schemas_annotations_.html#validator" class="tsd-kind-icon">Validator</a>
-					</li>
 				</ul>
 			</nav>
 		</div>

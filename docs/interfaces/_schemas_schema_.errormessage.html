@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>HandlerItem | Vulcain corejs</title>
+	<title>ErrorMessage | Vulcain corejs</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -57,13 +57,13 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="../modules/_pipeline_common_.html">&quot;pipeline/common&quot;</a>
+					<a href="../modules/_schemas_schema_.html">&quot;schemas/schema&quot;</a>
 				</li>
 				<li>
-					<a href="_pipeline_common_.handleritem.html">HandlerItem</a>
+					<a href="_schemas_schema_.errormessage.html">ErrorMessage</a>
 				</li>
 			</ul>
-			<h1>Interface HandlerItem</h1>
+			<h1>Interface ErrorMessage</h1>
 		</div>
 	</div>
 </header>
@@ -74,7 +74,7 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">HandlerItem</span>
+						<span class="target">ErrorMessage</span>
 					</li>
 				</ul>
 			</section>
@@ -85,9 +85,9 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_pipeline_common_.handleritem.html#handler" class="tsd-kind-icon">handler</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_pipeline_common_.handleritem.html#metadata" class="tsd-kind-icon">metadata</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_pipeline_common_.handleritem.html#methodname" class="tsd-kind-icon">method<wbr>Name</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_schemas_schema_.errormessage.html#id" class="tsd-kind-icon">id</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_schemas_schema_.errormessage.html#message" class="tsd-kind-icon">message</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_schemas_schema_.errormessage.html#property" class="tsd-kind-icon">property</a></li>
 							</ul>
 						</section>
 					</div>
@@ -96,32 +96,32 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="handler" class="tsd-anchor"></a>
-					<h3>handler</h3>
-					<div class="tsd-signature tsd-kind-icon">handler<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
+					<a name="id" class="tsd-anchor"></a>
+					<h3>id</h3>
+					<div class="tsd-signature tsd-kind-icon">id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/workfel/vulcain-corejs/blob/8820fe0/src/pipeline/common.ts#L75">pipeline/common.ts:75</a></li>
+							<li>Defined in <a href="https://github.com/workfel/vulcain-corejs/blob/a1b9924/src/schemas/schema.ts#L14">schemas/schema.ts:14</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="metadata" class="tsd-anchor"></a>
-					<h3>metadata</h3>
-					<div class="tsd-signature tsd-kind-icon">metadata<span class="tsd-signature-symbol">:</span> <a href="_pipeline_common_.commonactionmetadata.html" class="tsd-signature-type">CommonActionMetadata</a></div>
+					<a name="message" class="tsd-anchor"></a>
+					<h3>message</h3>
+					<div class="tsd-signature tsd-kind-icon">message<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/workfel/vulcain-corejs/blob/8820fe0/src/pipeline/common.ts#L76">pipeline/common.ts:76</a></li>
+							<li>Defined in <a href="https://github.com/workfel/vulcain-corejs/blob/a1b9924/src/schemas/schema.ts#L13">schemas/schema.ts:13</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="methodname" class="tsd-anchor"></a>
-					<h3>method<wbr>Name</h3>
-					<div class="tsd-signature tsd-kind-icon">method<wbr>Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<a name="property" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> property</h3>
+					<div class="tsd-signature tsd-kind-icon">property<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/workfel/vulcain-corejs/blob/8820fe0/src/pipeline/common.ts#L74">pipeline/common.ts:74</a></li>
+							<li>Defined in <a href="https://github.com/workfel/vulcain-corejs/blob/a1b9924/src/schemas/schema.ts#L15">schemas/schema.ts:15</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -134,62 +134,38 @@
 						<a href="../globals.html"><em>Globals</em></a>
 					</li>
 					<li class="current tsd-kind-external-module">
-						<a href="../modules/_pipeline_common_.html">"pipeline/common"</a>
+						<a href="../modules/_schemas_schema_.html">"schemas/schema"</a>
 					</li>
 				</ul>
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
 					<li class=" tsd-kind-class tsd-parent-kind-external-module">
-						<a href="../classes/_pipeline_common_.handlerfactory.html" class="tsd-kind-icon">Handler<wbr>Factory</a>
+						<a href="../classes/_schemas_schema_.domain.html" class="tsd-kind-icon">Domain</a>
 					</li>
 					<li class=" tsd-kind-class tsd-parent-kind-external-module">
-						<a href="../classes/_pipeline_common_.runtimeerror.html" class="tsd-kind-icon">Runtime<wbr>Error</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-external-module">
-						<a href="_pipeline_common_.commonactionmetadata.html" class="tsd-kind-icon">Common<wbr>Action<wbr>Metadata</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-external-module">
-						<a href="_pipeline_common_.commonhandlermetadata.html" class="tsd-kind-icon">Common<wbr>Handler<wbr>Metadata</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-external-module">
-						<a href="_pipeline_common_.commonmetadata.html" class="tsd-kind-icon">Common<wbr>Metadata</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-external-module">
-						<a href="_pipeline_common_.commonrequestdata.html" class="tsd-kind-icon">Common<wbr>Request<wbr>Data</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-has-type-parameter">
-						<a href="_pipeline_common_.commonrequestresponse.html" class="tsd-kind-icon">Common<wbr>Request<wbr>Response</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-external-module">
-						<a href="_pipeline_common_.errorresponse.html" class="tsd-kind-icon">Error<wbr>Response</a>
+						<a href="../classes/_schemas_schema_.schema.html" class="tsd-kind-icon">Schema</a>
 					</li>
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-interface tsd-parent-kind-external-module">
-						<a href="_pipeline_common_.handleritem.html" class="tsd-kind-icon">Handler<wbr>Item</a>
+						<a href="_schemas_schema_.errormessage.html" class="tsd-kind-icon">Error<wbr>Message</a>
 						<ul>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="_pipeline_common_.handleritem.html#handler" class="tsd-kind-icon">handler</a>
+								<a href="_schemas_schema_.errormessage.html#id" class="tsd-kind-icon">id</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="_pipeline_common_.handleritem.html#metadata" class="tsd-kind-icon">metadata</a>
+								<a href="_schemas_schema_.errormessage.html#message" class="tsd-kind-icon">message</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="_pipeline_common_.handleritem.html#methodname" class="tsd-kind-icon">method<wbr>Name</a>
+								<a href="_schemas_schema_.errormessage.html#property" class="tsd-kind-icon">property</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
 					<li class=" tsd-kind-interface tsd-parent-kind-external-module">
-						<a href="_pipeline_common_.imanager.html" class="tsd-kind-icon">IManager</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-external-module">
-						<a href="_pipeline_common_.servicehandlermetadata.html" class="tsd-kind-icon">Service<wbr>Handler<wbr>Metadata</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-external-module">
-						<a href="_pipeline_common_.validationerror.html" class="tsd-kind-icon">Validation<wbr>Error</a>
+						<a href="_schemas_schema_.schemadescription.html" class="tsd-kind-icon">Schema<wbr>Description</a>
 					</li>
 				</ul>
 			</nav>

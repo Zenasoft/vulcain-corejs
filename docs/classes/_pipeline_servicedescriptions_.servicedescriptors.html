@@ -91,18 +91,16 @@
 						<section class="tsd-index-section tsd-is-private tsd-is-private-protected">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="_pipeline_servicedescriptions_.servicedescriptors.html#descriptions" class="tsd-kind-icon">descriptions</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="_pipeline_servicedescriptions_.servicedescriptors.html#domain" class="tsd-kind-icon">domain</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="_pipeline_servicedescriptions_.servicedescriptors.html#schemas" class="tsd-kind-icon">schemas</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-static"><a href="_pipeline_servicedescriptions_.servicedescriptors.html#natives" class="tsd-kind-icon">natives</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_pipeline_servicedescriptions_.servicedescriptors.html#createhandlerstable" class="tsd-kind-icon">create<wbr>Handlers<wbr>Table</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_pipeline_servicedescriptions_.servicedescriptors.html#getall" class="tsd-kind-icon">get<wbr>All</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="_pipeline_servicedescriptions_.servicedescriptors.html#getpropertytype" class="tsd-kind-icon">get<wbr>Property<wbr>Type</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="_pipeline_servicedescriptions_.servicedescriptors.html#getschemadescription" class="tsd-kind-icon">get<wbr>Schema<wbr>Description</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter"><a href="_pipeline_servicedescriptions_.servicedescriptors.html#gethandlerinfo" class="tsd-kind-icon">get<wbr>Handler<wbr>Info</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_pipeline_servicedescriptions_.servicedescriptors.html#register" class="tsd-kind-icon">register</a></li>
 							</ul>
 						</section>
 					</div>
@@ -120,7 +118,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/workfel/vulcain-corejs/blob/8820fe0/src/pipeline/serviceDescriptions.ts#L44">pipeline/serviceDescriptions.ts:44</a></li>
+									<li>Defined in <a href="https://github.com/workfel/vulcain-corejs/blob/a1b9924/src/pipeline/serviceDescriptions.ts#L54">pipeline/serviceDescriptions.ts:54</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -137,48 +135,35 @@
 			<section class="tsd-panel-group tsd-member-group tsd-is-private tsd-is-private-protected">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
-					<a name="descriptions" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> descriptions</h3>
-					<div class="tsd-signature tsd-kind-icon">descriptions<span class="tsd-signature-symbol">:</span> <a href="_pipeline_servicedescriptions_.servicedescription.html" class="tsd-signature-type">ServiceDescription</a></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/workfel/vulcain-corejs/blob/8820fe0/src/pipeline/serviceDescriptions.ts#L43">pipeline/serviceDescriptions.ts:43</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
 					<a name="domain" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagPrivate">Private</span> domain</h3>
 					<div class="tsd-signature tsd-kind-icon">domain<span class="tsd-signature-symbol">:</span> <a href="_schemas_schema_.domain.html" class="tsd-signature-type">Domain</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/workfel/vulcain-corejs/blob/8820fe0/src/pipeline/serviceDescriptions.ts#L46">pipeline/serviceDescriptions.ts:46</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
-					<a name="schemas" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> schemas</h3>
-					<div class="tsd-signature tsd-kind-icon">schemas<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Map</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><a href="_pipeline_servicedescriptions_.schemadescription.html" class="tsd-signature-type">SchemaDescription</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> =&nbsp;new Map&lt;string, SchemaDescription&gt;()</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/workfel/vulcain-corejs/blob/8820fe0/src/pipeline/serviceDescriptions.ts#L44">pipeline/serviceDescriptions.ts:44</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-static">
-					<a name="natives" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagStatic">Static</span> <span class="tsd-flag ts-flagPrivate">Private</span> natives</h3>
-					<div class="tsd-signature tsd-kind-icon">natives<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> =&nbsp;[&quot;string&quot;, &quot;String&quot;, &quot;boolean&quot;, &quot;Boolean&quot;, &quot;number&quot;, &quot;Number&quot;, &quot;any&quot;, &quot;Object&quot;]</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/workfel/vulcain-corejs/blob/8820fe0/src/pipeline/serviceDescriptions.ts#L42">pipeline/serviceDescriptions.ts:42</a></li>
+							<li>Defined in <a href="https://github.com/workfel/vulcain-corejs/blob/a1b9924/src/pipeline/serviceDescriptions.ts#L56">pipeline/serviceDescriptions.ts:56</a></li>
 						</ul>
 					</aside>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Methods</h2>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="createhandlerstable" class="tsd-anchor"></a>
+					<h3>create<wbr>Handlers<wbr>Table</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">create<wbr>Handlers<wbr>Table<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/workfel/vulcain-corejs/blob/a1b9924/src/pipeline/serviceDescriptions.ts#L94">pipeline/serviceDescriptions.ts:94</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="getall" class="tsd-anchor"></a>
 					<h3>get<wbr>All</h3>
@@ -189,56 +174,97 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/workfel/vulcain-corejs/blob/8820fe0/src/pipeline/serviceDescriptions.ts#L48">pipeline/serviceDescriptions.ts:48</a></li>
+									<li>Defined in <a href="https://github.com/workfel/vulcain-corejs/blob/a1b9924/src/pipeline/serviceDescriptions.ts#L58">pipeline/serviceDescriptions.ts:58</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <a href="_pipeline_servicedescriptions_.servicedescription.html" class="tsd-signature-type">ServiceDescription</a></h4>
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private">
-					<a name="getpropertytype" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> get<wbr>Property<wbr>Type</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>Property<wbr>Type<span class="tsd-signature-symbol">(</span>name<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
+					<a name="gethandlerinfo" class="tsd-anchor"></a>
+					<h3>get<wbr>Handler<wbr>Info</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Handler<wbr>Info&lt;T&gt;<span class="tsd-signature-symbol">(</span>container<span class="tsd-signature-symbol">: </span><a href="../interfaces/_di_resolvers_.icontainer.html" class="tsd-signature-type">IContainer</a>, schema<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, action<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, optional<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/workfel/vulcain-corejs/blob/8820fe0/src/pipeline/serviceDescriptions.ts#L155">pipeline/serviceDescriptions.ts:155</a></li>
+									<li>Defined in <a href="https://github.com/workfel/vulcain-corejs/blob/a1b9924/src/pipeline/serviceDescriptions.ts#L63">pipeline/serviceDescriptions.ts:63</a></li>
 								</ul>
 							</aside>
+							<h4 class="tsd-type-parameters-title">Type parameters</h4>
+							<ul class="tsd-type-parameters">
+								<li>
+									<h4>T<span class="tsd-signature-symbol">: </span><a href="../interfaces/_pipeline_common_.commonmetadata.html" class="tsd-signature-type">CommonMetadata</a></h4>
+								</li>
+							</ul>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>name: <span class="tsd-signature-type">string</span></h5>
+									<h5>container: <a href="../interfaces/_di_resolvers_.icontainer.html" class="tsd-signature-type">IContainer</a></h5>
+								</li>
+								<li>
+									<h5>schema: <span class="tsd-signature-type">string</span></h5>
+								</li>
+								<li>
+									<h5>action: <span class="tsd-signature-type">string</span></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> optional: <span class="tsd-signature-type">boolean</span></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">object</span></h4>
+							<ul class="tsd-parameters">
+								<li class="tsd-parameter">
+									<h5>handler<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></h5>
+								</li>
+								<li class="tsd-parameter">
+									<h5>metadata<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span></h5>
+								</li>
+								<li class="tsd-parameter">
+									<h5>method<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></h5>
+								</li>
+							</ul>
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private">
-					<a name="getschemadescription" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> get<wbr>Schema<wbr>Description</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>Schema<wbr>Description<span class="tsd-signature-symbol">(</span>schemaName<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Function</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="register" class="tsd-anchor"></a>
+					<h3>register</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">register<span class="tsd-signature-symbol">(</span>container<span class="tsd-signature-symbol">: </span><a href="../interfaces/_di_resolvers_.icontainer.html" class="tsd-signature-type">IContainer</a>, domain<span class="tsd-signature-symbol">: </span><a href="_schemas_schema_.domain.html" class="tsd-signature-type">Domain</a>, target<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Function</span>, actions<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, handlerMetadata<span class="tsd-signature-symbol">: </span><a href="../interfaces/_pipeline_common_.servicehandlermetadata.html" class="tsd-signature-type">ServiceHandlerMetadata</a>, kind<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/workfel/vulcain-corejs/blob/8820fe0/src/pipeline/serviceDescriptions.ts#L103">pipeline/serviceDescriptions.ts:103</a></li>
+									<li>Defined in <a href="https://github.com/workfel/vulcain-corejs/blob/a1b9924/src/pipeline/serviceDescriptions.ts#L249">pipeline/serviceDescriptions.ts:249</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>schemaName: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Function</span></h5>
+									<h5>container: <a href="../interfaces/_di_resolvers_.icontainer.html" class="tsd-signature-type">IContainer</a></h5>
+								</li>
+								<li>
+									<h5>domain: <a href="_schemas_schema_.domain.html" class="tsd-signature-type">Domain</a></h5>
+								</li>
+								<li>
+									<h5>target: <span class="tsd-signature-type">Function</span></h5>
+								</li>
+								<li>
+									<h5>actions: <span class="tsd-signature-type">any</span></h5>
+								</li>
+								<li>
+									<h5>handlerMetadata: <a href="../interfaces/_pipeline_common_.servicehandlermetadata.html" class="tsd-signature-type">ServiceHandlerMetadata</a></h5>
+								</li>
+								<li>
+									<h5>kind: <span class="tsd-signature-type">string</span></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -278,30 +304,27 @@
 								<a href="_pipeline_servicedescriptions_.servicedescriptors.html#constructor" class="tsd-kind-icon">constructor</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
-								<a href="_pipeline_servicedescriptions_.servicedescriptors.html#descriptions" class="tsd-kind-icon">descriptions</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
 								<a href="_pipeline_servicedescriptions_.servicedescriptors.html#domain" class="tsd-kind-icon">domain</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
-								<a href="_pipeline_servicedescriptions_.servicedescriptors.html#schemas" class="tsd-kind-icon">schemas</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-static">
-								<a href="_pipeline_servicedescriptions_.servicedescriptors.html#natives" class="tsd-kind-icon">natives</a>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_pipeline_servicedescriptions_.servicedescriptors.html#createhandlerstable" class="tsd-kind-icon">create<wbr>Handlers<wbr>Table</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="_pipeline_servicedescriptions_.servicedescriptors.html#getall" class="tsd-kind-icon">get<wbr>All</a>
 							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private">
-								<a href="_pipeline_servicedescriptions_.servicedescriptors.html#getpropertytype" class="tsd-kind-icon">get<wbr>Property<wbr>Type</a>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
+								<a href="_pipeline_servicedescriptions_.servicedescriptors.html#gethandlerinfo" class="tsd-kind-icon">get<wbr>Handler<wbr>Info</a>
 							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private">
-								<a href="_pipeline_servicedescriptions_.servicedescriptors.html#getschemadescription" class="tsd-kind-icon">get<wbr>Schema<wbr>Description</a>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_pipeline_servicedescriptions_.servicedescriptors.html#register" class="tsd-kind-icon">register</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
+					<li class=" tsd-kind-interface tsd-parent-kind-external-module">
+						<a href="../interfaces/_pipeline_servicedescriptions_.handleritem.html" class="tsd-kind-icon">Handler<wbr>Item</a>
+					</li>
 				</ul>
 			</nav>
 		</div>
