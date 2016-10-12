@@ -1,25 +1,27 @@
 
-import {Domain} from './schema'
+import { Domain, SchemaDescription, ErrorMessage } from './schema';
 import {IContainer} from '../di/resolvers';
+import { ReferenceOptions, PropertyOptions } from './annotations';
+import { Property } from './annotations';
 
 export class Validator
 {
 
-    constructor( private domain:Domain, private container:IContainer, private throwErrorOnInvalidType:boolean )
+    constructor( private domain:Domain, private container:IContainer)
     {
     }
 
-    validate( schemaDesc, val )
+    validate( schemaDesc: SchemaDescription, val )
     {
-        let errors = [];
+        let errors: Array<ErrorMessage> = [];
         if( !schemaDesc || !val ) return errors;
 
         if( schemaDesc.extends)
         {
-            let base = typeof schemaDesc.extends === "string" ? this.domain.getSchema(schemaDesc.extends) : schemaDesc.extends;
+            let base = this.domain.resolveSchemaDescription(schemaDesc.extends);
             if(base)
             {
-                this.validate( base.description, val ).forEach(e=> {errors.push( e );});
+                this.validate( base, val ).forEach(e=> {errors.push( e );});
             }
         }
 
@@ -36,10 +38,10 @@ export class Validator
 
             try
             {
-                let err = this.validateProperty( schemaDesc.properties[ps], val[ps], val);
+                let err = this.validateProperty(ctx, schemaDesc.properties[ps], val[ps], val);
                 if( err )
                 {
-                    errors.push( {message: this.__formatMessage( err, ctx ), property:ps, id:ctx.id} );
+                    errors.push( {message: err, property:ps, id:ctx.id} );
                 }
             }
             catch( e )
@@ -69,12 +71,12 @@ export class Validator
                 else
                 {
                     let errors2 = this.validateReference( ref, val[rs], val );
-                    errors2.forEach( err=>errors.push( {message:this.__formatMessage( err, ctx ), id:ctx.id, PropertyDecorator:rs} ));
+                    errors2 && errors2.forEach( err=>errors.push( {message:this.__formatMessage( err, ctx, schemaDesc ), id:ctx.id, property:rs} ));
                 }
             }
             catch( e )
             {
-                errors.push( {message:this.__formatMessage( "Validation error for reference {$propertyName} : " + e, ctx ), id:ctx.id, PropertyDecorator:rs} );
+                errors.push( {message:this.__formatMessage( "Validation error for reference {$propertyName} : " + e, ctx ), id:ctx.id, property:rs} );
             }
         }
 
@@ -86,7 +88,7 @@ export class Validator
             {
                 let err = schemaDesc.validate( val, this.container );
                 if( err )
-                    errors.push( {message:this.__formatMessage( err, ctx ), id:ctx.id} );
+                    errors.push( {message:this.__formatMessage( err, ctx, schemaDesc ), id:ctx.id} );
             }
             catch( e )
             {
@@ -96,91 +98,67 @@ export class Validator
         return errors;
     }
 
-    private clone( schema, from )
+    private validateReference( schema, val, entity ): Array<string>
     {
-        let clone = {};
-        for( let p in schema )
-        {
-            if( !schema.hasOwnProperty( p ) ) continue;
-            if( p && p[0] === "$" )
-            {
-                let pname = p.substr(1);
-                clone[p] = (from.meta && from.meta[pname]) || from[pname] || schema[p];
-            }
-            else
-            {
-                clone[p] = schema[p];
-            }
-        }
-        return clone;
-    }
-
-    private validateReference( schema, val, entity )
-    {
-        let errors = [];
         if (!schema)
-            return errors;
+            return;
+
         if (schema.dependsOn && !schema.dependsOn(entity))
-            return errors;
-        if (schema.type) {
-            let type = this.domain._findType(schema.type);
-            if (!type) {
-                if( this.throwErrorOnInvalidType)
-                    errors.push(`Unknown reference type ${schema.type} in schema ${schema.name}`);
+            return;
+
+        if (!val) {
+            if (schema.required) {
+                return ["Reference '{$propertyName}' is required."];
             }
-            else {
-                errors = this.validateReference(this.clone(type, schema), val, entity);
-            }
-            if (errors.length > 0)
-                return errors;
+            return null;
         }
-        else {
-            let type = this.domain._findType("$ref");
-            if (type && type.validate) {
-                let clone:any = this.clone(type, schema);
-                let err = clone.validate(val);
-                if (err) {
-                    errors.push(err);
-                    return errors;
-                }
+
+        if (schema.validators) {
+            for (let validator of schema.validators) {
+                let err = validator.validate && validator.validate(val);
+                if (err) return [err];
             }
         }
-        if (schema.validate) {
-            let err = schema.validate(val);
-            if (err) {
-                errors.push(err);
-                return errors;
+
+        let err = schema.validate && schema.validate(val);
+        if (err) return [err];
+
+        let values = schema.cardinality === "one" ? [val] : <Array<any>>val;
+        let itemType = schema.item && this.domain._findType(schema.item);
+        let errors = [];
+        for (let val of values) {
+            if (val) {
+                let t = itemType;
+                if (val.__schema && val.__schema !== schema.item)
+                    t = this.domain._findType(val.__schema);
+                errors = this.validate(t, val);
             }
-        }
-        let item = this.domain._findType(schema.item);
-        if (!item) {
-            if (this.throwErrorOnInvalidType)
-                errors.push(`Unknown schema ${schema} for reference {$propertyName}`);
-        }
-        else {
-            errors = this.validate(item, val);
         }
         return errors;
     }
 
-    private validateProperty( schema:string | any, val, entity )
-    {
-        if( typeof schema === "string" )
-        {
-            let type = this.domain._findType( schema );
-            if( !type ) return this.throwErrorOnInvalidType ? `Unknown schema ${schema}` : null;
+    private validateProperty(ctx: FormatContext, schema: string | any, val, entity): string {
+        if (typeof schema === "string") {
+            let type = this.domain._findType(<string>schema);
+            if (!type) {
+                return null;
+            }
             schema = type;
         }
 
-        if( schema.dependsOn && !schema.dependsOn(entity)) return;
+        if (schema.dependsOn && !schema.dependsOn(entity)) return;
 
-        let stype = schema.type;
-        if( stype )
-        {
-            let type = this.domain._findType( stype );
-            if( !type ) return this.throwErrorOnInvalidType ? `Unknown type ${stype} in schema ${schema.name}` : null;
-            let err = this.validateProperty( this.clone( type, schema ), val, entity );
-            if( err ) return err;
+        if (val === undefined || val === null) {
+            if (schema.required) {
+                return "Property '{$propertyName}' is required.";
+            }
+            return null;
+        }
+        if (schema.validators) {
+            for (let validator of schema.validators) {
+                let err = validator.validate && validator.validate(val);
+                if (err) return this.__formatMessage( err, ctx, validator );
+            }
         }
 
         if( schema.validate )
@@ -196,7 +174,7 @@ export class Validator
      * @returns {string}
      * @private
      */
-    private __formatMessage( message:string, ctx:FormatContext ):string
+    private __formatMessage( message:string, ctx:FormatContext, validator? ):string
     {
         var regex = /{\s*([^}\s]*)\s*}/g;
         return message.replace( regex, function( match, name )
@@ -213,12 +191,11 @@ export class Validator
                     return ctx.propertyName;
                 default :
                     if( !name ) return null;
-                    let schema = ctx.propertyName ? ctx.propertySchema : ctx.schemaElement;
                     // Name beginning with $ belongs to schema
-                    if( name[0] === "$" )
+                    if( name[0] === "$" && validator )
                     {
-                        let p = schema[name] || schema[name.substring( 1 )];
-                        return (typeof p === "function" && p( schema )) || p;
+                        let p = validator[name] || validator[name.substring( 1 )];
+                        return (typeof p === "function" && p( validator )) || p;
                     }
                     // Else it's an element's property
                     if( ctx.element )

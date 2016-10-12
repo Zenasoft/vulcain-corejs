@@ -7,6 +7,7 @@ import {IContainer} from '../di/resolvers';
 import {DefaultServiceNames} from '../di/annotations';
 import {Conventions} from '../utils/conventions';
 import {QueryData} from '../pipeline/query';
+import { HttpResponse } from './../pipeline/common';
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const guid = require('node-uuid');
@@ -157,25 +158,41 @@ export class ExpressAdapter extends AbstractAdapter {
         try {
             if (req.user )
                 ctx.user = req.user;
+
             ctx.correlationId = req.headers["X-VULCAIN-CORRELATION-ID"] || guid.v4();
             ctx.correlationPath = req.headers["X-VULCAIN-CORRELATION-PATH"] || "-";
             ctx.tenant = (ctx.user && ctx.user.tenant) || req.headers["X-VULCAIN-TENANT"] || process.env[Conventions.instance.ENV_TENANT] || RequestContext.TestTenant;
-            ctx.requestHeaders = req.headers;
+            ctx.headers = req.headers;
+            ctx.hostName = req.hostname;
 
             let result = await handler.apply(this, [command, ctx]);
-            if (ctx.getResponseHeaders()) {
-                for (const [k, v] of ctx.getResponseHeaders()) {
-                    res.setHeader(k, v);
+            if (result.value instanceof HttpResponse) {
+                let response: HttpResponse = result.value;
+                if (response.headers) {
+                    for (const [k, v] of response.headers) {
+                        res.setHeader(k, v);
+                    }
                 }
+                res.statusCode = response.statusCode || 200;
+                if (response.contentType)
+                    res.contentType(response.contentType);
+                if (response.content)
+                    res.send(response.content);
+                else
+                    res.send();
             }
-            res.statusCode = result.code || ctx.responseCode || 200;
-            res.send(result.value);
+            else {
+                res.statusCode = result.code || 200;
+                res.send(result.value);
+            }
+
             this.endRequest(begin, result, ctx);
         }
         catch (e) {
             let result = command;
             result.error = { message: e.message || e };
-            res.status(500).send({ error: e.message || e });
+            res.statusCode = e.statusCode || 500;
+            res.send({ error: { message: e.message || e, errors: e.errors } });
             this.endRequest(begin, result, ctx, e);
         }
         finally {

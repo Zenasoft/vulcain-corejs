@@ -1,3 +1,7 @@
+import { DefaultServiceNames } from './di/annotations';
+import { IContainer } from './di/resolvers';
+import { ServiceDescriptors } from './pipeline/serviceDescriptions';
+
 interface Item {
     name: string;
     callback: (container, domain) => void;
@@ -6,6 +10,7 @@ interface Item {
 const Models = "models";
 const Services = "services";
 const Handlers = "handlers";
+
 
 export class Preloader {
     private static _preloads: { [name: string]: Array<Item> } = {};
@@ -41,11 +46,14 @@ export class Preloader {
         }
     }
 
-    static runPreloads(container, domain) {
+    static runPreloads(container: IContainer, domain) {
         if (Preloader._preloads) {
             Preloader.run(Models, container, domain);
             Preloader.run(Services, container, domain);
             Preloader.run(Handlers, container, domain);
+
+            let descriptors = container.get<ServiceDescriptors>(DefaultServiceNames.ServiceDescriptors);
+            descriptors.createHandlersTable();
 
             Preloader._preloads = {};
         }

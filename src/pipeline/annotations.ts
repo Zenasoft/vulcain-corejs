@@ -2,6 +2,9 @@ import 'reflect-metadata';
 import {Preloader} from '../preloader';
 import {CommandManager, ActionMetadata, ActionHandlerMetadata, EventMetadata, ConsumeEventMetadata} from './actions';
 import {QueryManager, QueryMetadata, QueryActionMetadata} from './query';
+import { ServiceDescriptors } from './serviceDescriptions';
+import { DefaultServiceNames } from './../di/annotations';
+import { IContainer } from './../di/resolvers';
 
 const symMetadata = Symbol.for("handler:metadata");
 const symActions = Symbol.for("handler:actions");
@@ -37,8 +40,9 @@ export function ActionHandler(metadata: ActionHandlerMetadata) {
         metadata.scope = metadata.scope || "?";
         let actions = getMetadata(symActions, target);
 
-        Preloader.registerHandler( target, (container, domain) => {
-            CommandManager.commandHandlersFactory.register(container, domain, target, actions, metadata, "action");
+        Preloader.registerHandler( target, (container: IContainer, domain) => {
+            let descriptors = container.get<ServiceDescriptors>(DefaultServiceNames.ServiceDescriptors);
+            descriptors.register(container, domain, target, actions, metadata, "action");
             Reflect.defineMetadata(symMetadata, metadata, target);
         });
     }
@@ -51,7 +55,7 @@ export function ActionHandler(metadata: ActionHandlerMetadata) {
  * @param {ActionMetadata} [actionMetadata]
  * @returns
  */
-export function Action(actionMetadata?: ActionMetadata) {
+export function Action(actionMetadata: ActionMetadata) {
     return (target, key) => {
         let actions = Reflect.getOwnMetadata(symActions, target.constructor) || {};
         actions[key] = actionMetadata || {};
@@ -86,8 +90,9 @@ export function QueryHandler(metadata: QueryMetadata) {
         metadata.scope = metadata.scope || "?";
         let actions = getMetadata(symActions, target);
 
-        Preloader.registerHandler( target, (container, domain) => {
-            QueryManager.handlerFactory.register(container, domain, target, actions, metadata, "query");
+        Preloader.registerHandler(target, (container:IContainer, domain) => {
+            let descriptors = container.get<ServiceDescriptors>(DefaultServiceNames.ServiceDescriptors);
+            descriptors.register(container, domain, target, actions, metadata, "query");
             Reflect.defineMetadata(symMetadata, metadata, target);
         });
     }
@@ -100,7 +105,7 @@ export function QueryHandler(metadata: QueryMetadata) {
  * @param {QueryActionMetadata} [actionMetadata]
  * @returns
  */
-export function Query(actionMetadata?: QueryActionMetadata) {
+export function Query(actionMetadata: QueryActionMetadata) {
     return (target, key) => {
         let actions = Reflect.getOwnMetadata(symActions, target.constructor) || {};
         actions[key] = actionMetadata || {};

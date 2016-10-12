@@ -23,7 +23,7 @@
 				"VULCAIN_DOMAIN": "Customer",
 				"NODE_ENV": "development"
 			},
-			"externalConsole": false,
+			"console": "internalConsole",
 			"sourceMaps": true,
 			"outDir": "${workspaceRoot}/dist"
 		},
@@ -39,12 +39,11 @@
             "cwd": "${workspaceRoot}",
             "runtimeExecutable": null,
             "runtimeArgs": [
-                "--harmony"
             ],
             "env": {
                 "NODE_ENV": "development"
             },
-            "externalConsole": false,
+			"console": "internalConsole",
             "sourceMaps": true,
             "outDir": "${workspaceRoot}/dist-test"
         },

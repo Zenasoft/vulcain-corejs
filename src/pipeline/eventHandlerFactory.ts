@@ -1,5 +1,5 @@
 import { System } from 'vulcain-configurationsjs';
-import { HandlerItem } from './../pipeline/common';
+import { HandlerItem } from './serviceDescriptions';
 import { EventMetadata, ConsumeEventMetadata } from './../pipeline/actions';
 import { IContainer } from './../di/resolvers';
 import {Domain} from './../schemas/schema';
@@ -59,6 +59,7 @@ export class EventHandlerFactory {
 
             // Merge metadata
             let item: HandlerItem = {
+                kind: "event",
                 methodName: action,
                 metadata: Object.assign({}, handlerMetadata, actionMetadata),
                 handler: target

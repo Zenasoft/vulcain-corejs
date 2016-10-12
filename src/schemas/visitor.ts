@@ -1,4 +1,4 @@
-import {Domain} from './schema';
+import { Domain, SchemaDescription } from './schema';
 
 export interface IVisitor {
     visitEntity(obj, schema): boolean;
@@ -10,25 +10,9 @@ export class SchemaVisitor {
     constructor(private domain:Domain, private visitor: IVisitor) {
     }
 
-    private resolveSchema(schemaName) {
-        let schema = schemaName;
+    visit(schemaName:string|SchemaDescription, entity) {
 
-        if (typeof schemaName === "string") {
-            schemaName = schemaName;
-            schema = this.domain.findSchemaDescription(schemaName);
-            if (!schema) return;
-        }
-        else {
-            if (!schema) return;
-            schema = schema.description || schema;
-        }
-        return schema;
-    }
-
-    visit(schemaName, entity) {
-
-        let schema = this.resolveSchema(schemaName);
-
+        let schema = this.domain.resolveSchemaDescription(schemaName);
         if (this.visitor.visitEntity && !this.visitor.visitEntity(entity, schema))
             return;
 
@@ -38,12 +22,12 @@ export class SchemaVisitor {
                 if (!sch.properties.hasOwnProperty(ps)) continue;
                 let prop = sch.properties[ps];
                 if (prop) {
-                    prop.name = ps;
+                    (<any>prop).name = ps;
                     let val = entity[ps];
                     this.visitor.visitProperty && this.visitor.visitProperty(val, prop);
                 }
             }
-            sch = sch.extends && this.resolveSchema( sch.extends );
+            sch = sch.extends && this.domain.resolveSchemaDescription( sch.extends );
         }
 
         sch = schema;
@@ -73,7 +57,7 @@ export class SchemaVisitor {
                     }
                 }
             }
-            sch = sch.extends && this.resolveSchema(sch.extends);
+            sch = sch.extends && this.domain.resolveSchemaDescription(sch.extends);
         }
     }
 }

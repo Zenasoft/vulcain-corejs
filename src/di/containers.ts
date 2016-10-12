@@ -16,6 +16,7 @@ import {LifeTime} from './annotations';
 import {Files} from '../utils/files';
 import {Conventions} from '../utils/conventions';
 import { RequestContext } from './../servers/requestContext';
+import { ServiceDescriptors } from './../pipeline/serviceDescriptions';
 
 /**
  *
@@ -32,8 +33,10 @@ export class Container implements IContainer {
     constructor(private parent?: IContainer, private requestContext?: RequestContext) {
         this.scope = new Scope(parent && (<any>parent).scope, requestContext);
         this.injectInstance(this, DefaultServiceNames.Container);
-        this.injectInstance(new VulcainLogger(), DefaultServiceNames.Logger);
+
         if (!parent) {
+            this.injectInstance(new VulcainLogger(), DefaultServiceNames.Logger);
+            this.injectSingleton(ServiceDescriptors, DefaultServiceNames.ServiceDescriptors);
             this.injectSingleton(ProviderFactory, DefaultServiceNames.ProviderFactory);
         }
     }

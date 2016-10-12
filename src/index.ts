@@ -19,7 +19,7 @@ export * from './pipeline/annotations'
 export {EventNotificationMode, ActionMetadata, ActionData, ActionHandlerMetadata, ActionResponse, ConsumeEventMetadata, EventMetadata, EventData} from './pipeline/actions';
 export {QueryData,QueryActionMetadata, QueryMetadata, QueryResponse} from './pipeline/query';
 export {AbstractActionHandler, AbstractEventHandler, AbstractQueryHandler} from './pipeline/abstractHandlers';
-export {ValidationError} from './pipeline/common';
+export {ValidationError, HttpResponse} from './pipeline/common';
 
 export {AbstractAdapter} from './servers/abstractAdapter';
 export {RequestContext, Pipeline, UserContext} from './servers/requestContext'

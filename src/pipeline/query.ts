@@ -8,6 +8,7 @@ import {RequestContext, UserContext} from '../servers/requestContext';
 import {CommandRuntimeError} from '../commands/command/command';
 import {DefaultServiceNames} from '../di/annotations';
 import {LifeTime} from '../di/annotations';
+import { ServiceDescriptors } from './serviceDescriptions';
 
 export interface QueryData extends CommonRequestData {
     data: any;
@@ -32,7 +33,7 @@ export interface QueryActionMetadata extends CommonActionMetadata {
 export class QueryManager implements IManager {
     private _domain: Domain;
     private _hostname: string;
-    static handlerFactory = new HandlerFactory();
+    private _serviceDescriptors: ServiceDescriptors;
 
     /**
      * Get the current domain model
@@ -65,9 +66,12 @@ export class QueryManager implements IManager {
         return res;
     }
 
-    getMetadata(command: CommonRequestData) {
-        let info = QueryManager.handlerFactory.getInfo<QueryMetadata>(null, command.domain, command.schema, command.action);
-        return info.metadata;
+    getInfoHandler(command: CommonRequestData, container?:IContainer) {
+        if (!this._serviceDescriptors) {
+            this._serviceDescriptors = this.container.get<ServiceDescriptors>(DefaultServiceNames.ServiceDescriptors);
+        }
+        let info = this._serviceDescriptors.getHandlerInfo<QueryMetadata>(container, command.schema, command.action);
+        return info;
     }
 
     private async validateRequestData(info, query) {
@@ -81,7 +85,7 @@ export class QueryManager implements IManager {
                 // Custom binding if any
                  query.data = schema.bind(query.data);
 
-                errors = this.domain.validate(query.data, schema);
+                errors = schema.validate(query.data);
                 if (errors && !Array.isArray(errors))
                     errors = [errors];
             }
@@ -101,7 +105,7 @@ export class QueryManager implements IManager {
     }
 
     async runAsync(query: QueryData, ctx: RequestContext) {
-        let info = QueryManager.handlerFactory.getInfo<QueryActionMetadata>(ctx.container, query.domain, query.schema, query.action);
+        let info = this.getInfoHandler(query, ctx.container);
         System.log.write(ctx, { runQuery: query });
 
         try {

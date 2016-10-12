@@ -96,14 +96,7 @@ export class RequestContext {
      *
      * @type {{ [name: string]: string }}
      */
-    public requestHeaders: { [name: string]: string };
-    private _responseHeaders: Map<string, string>;
-    /**
-     * Used to override default response code (200)
-     *
-     * @type {number}
-     */
-    public responseCode: number;
+    public headers: { [name: string]: string };
     /**
      * Current tenant
      *
@@ -112,25 +105,12 @@ export class RequestContext {
     public tenant: string;
 
     /**
-     * Do not use
+     * Request host name
      *
-     * @returns
+     * @type {string}
+     * @memberOf RequestContext
      */
-    getResponseHeaders() {
-        return this._responseHeaders;
-    }
-
-    /**
-     * Add a custom header value to the response
-     *
-     * @param {string} name
-     * @param {string} value
-     */
-    addHeader(name: string, value: string) {
-        if (!this._responseHeaders)
-            this._responseHeaders = new Map<string, string>();
-        this._responseHeaders.set(name, value);
-    }
+    public hostName: string;
 
     /**
      * Get request cache (Cache is only valid during the request lifetime)

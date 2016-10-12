@@ -1,10 +1,61 @@
 import { System } from 'vulcain-configurationsjs';
-
 import {Application} from '../application';
 import {IContainer} from '../di/resolvers';
 import {LifeTime} from '../di/annotations';
 import {Domain} from '../schemas/schema';
 import {UserContext} from '../servers/requestContext';
+
+/**
+ * This class provide a way to customize the http response.
+ *
+ * @export
+ * @class HttpResponse
+ */
+export class HttpResponse {
+    /**
+     * Http code (default is 200)
+     *
+     * @type {number}
+     * @memberOf HttpResponse
+     */
+    public statusCode: number;
+    /**
+     * List of response headers
+     *
+     * @type {Map<string, string>}
+     * @memberOf HttpResponse
+     */
+    public headers: Map<string, string>;
+    /**
+     * Define a specific ContentType
+     *
+     * @type {string}
+     * @memberOf HttpResponse
+     */
+    public contentType: string;
+    /**
+     * Response content
+     *
+     * @type {*}
+     * @memberOf HttpResponse
+     */
+    public content: any;
+
+    constructor() {
+        this.headers = new Map<string, string>();
+        this.statusCode = 200;
+    }
+
+        /**
+     * Add a custom header value to the response
+     *
+     * @param {string} name
+     * @param {string} value
+     */
+    addHeader(name: string, value: string) {
+        this.headers.set(name, value);
+    }
+}
 
 export class RuntimeError extends Error { }
 
@@ -42,7 +93,7 @@ export interface CommonRequestResponse<T> {
 }
 
 export interface CommonActionMetadata {
-    description?: string;
+    description: string;
     action?: string;
     scope?: string;
     schema?: string|Function;
@@ -66,149 +117,11 @@ export interface ServiceHandlerMetadata extends CommonHandlerMetadata {
 
 export interface IManager {
     container: IContainer;
-    getMetadata(command: CommonRequestData): CommonMetadata;
+    getInfoHandler(command: CommonRequestData, container?: IContainer);
     runAsync(command: CommonRequestData, ctx): Promise<CommonRequestResponse<any>>;
 }
 
-export interface HandlerItem {
-    methodName: string;
-    handler;
-    metadata: CommonActionMetadata;
-}
-
 export class HandlerFactory {
-    handlers: Map<string, HandlerItem> = new Map<string, HandlerItem>();
-    private _isMonoSchema: boolean = undefined;
-
-    public isMonoSchema(domain: string) {
-        this.ensuresOptimized(domain);
-        return this._isMonoSchema;
-    }
-
-    private ensuresOptimized(domainName:string) {
-        if (!domainName || this._isMonoSchema !== undefined)
-            return;
-
-        // Check if all schema are the same so schema will be optional on request
-        this._isMonoSchema = true;
-        let schema;
-        for (const item of this.handlers.values()) {
-            if (!item.metadata.schema)
-                continue;
-            if (!schema)
-                schema = item.metadata.schema;
-            else if (item.metadata.schema !== schema) {
-                this._isMonoSchema = false;
-                break;
-            }
-        }
-
-        if (this._isMonoSchema) {
-            let handlers = new Map<string, HandlerItem>();
-            // Normalize all keys
-            for (const item of this.handlers.values()) {
-                let handlerKey = [domainName, item.metadata.action].join('.').toLowerCase();
-                if (handlers.has(handlerKey))
-                    System.log.info(null, `Duplicate action ${item.metadata.action} for handler ${handlerKey}`);
-                handlers.set(handlerKey, item);
-            }
-            this.handlers = handlers;
-        }
-    }
-
-    register(container: IContainer, domain: Domain, target: Function, actions: any, handlerMetadata: ServiceHandlerMetadata, kind:string) {
-
-        let domainName = domain.name;
-        handlerMetadata = handlerMetadata || {scope:"*"};
-
-        if (handlerMetadata.schema) {
-            // test if exists
-            let tmp = domain.getSchema(handlerMetadata.schema);
-            handlerMetadata.schema = tmp.name;
-        }
-
-        container.inject(handlerMetadata.serviceName || target.name, target, handlerMetadata.serviceLifeTime || LifeTime.Scoped);
-
-        for (const action in actions) {
-            let actionMetadata: CommonActionMetadata = actions[action];
-            actionMetadata = actionMetadata || <CommonActionMetadata>{};
-            actionMetadata.action = actionMetadata.action || action;
-
-            if(kind === "action") {
-                if (!actionMetadata.inputSchema) {
-                    actionMetadata.inputSchema = actionMetadata.schema || handlerMetadata.schema;
-                }
-                if (!actionMetadata.outputSchema) {
-                    actionMetadata.outputSchema = actionMetadata.inputSchema;
-                }
-            }
-            else {
-                if (!actionMetadata.outputSchema) {
-                    actionMetadata.outputSchema = actionMetadata.schema || handlerMetadata.schema;
-                }
-            }
-
-            if (actionMetadata.schema) {
-                // test if exists
-                let tmp = domain.getSchema(actionMetadata.schema);
-                actionMetadata.schema = tmp.name;
-            }
-            if (actionMetadata.inputSchema) {
-                // test if exists
-                let tmp = domain.getSchema(actionMetadata.inputSchema);
-                actionMetadata.inputSchema = tmp.name;
-            }
-
-            let keys = [domainName];
-            let schema = <string>actionMetadata.schema || <string>handlerMetadata.schema;
-            if (schema)
-                keys.push(schema);
-            keys.push(actionMetadata.action);
-            let handlerKey = keys.join('.').toLowerCase();
-            if (this.handlers.has(handlerKey))
-                System.log.info(null, `*** Duplicate action ${actionMetadata.action} for handler ${target.name}`);
-
-            // Merge metadata
-            let item: HandlerItem = {
-                methodName: action,
-                metadata: Object.assign({}, handlerMetadata, actionMetadata),
-                handler: target
-            }
-            this.handlers.set(handlerKey, item);
-            System.log.info(null, "Handler registered for domain %s with key %s metadata: %j", domainName, handlerKey, item.metadata);
-        }
-    }
-
-    getInfo<T extends CommonMetadata>(container: IContainer, domain: string, schema: string, action: string, optional?: boolean) {
-
-        let d = domain && domain.toLowerCase();
-        let a = action && action.toLowerCase();
-        let handlerKey;
-        let info;
-        if (!this.isMonoSchema(domain) && schema) {
-            handlerKey = d + "." + schema.toLowerCase() + "." + a;
-            info = this.handlers.get(handlerKey);
-        }
-        if (!info) {
-            handlerKey = d + "." + a;
-            info = this.handlers.get(handlerKey);
-        }
-        if (info == null) {
-            if (optional)
-                return null;
-            else
-                throw new RuntimeError(`no handler method founded for domain ${domain}, action ${action}, schema ${schema}`);
-        }
-
-        try {
-            let handler = container && container.resolve(info.handler);
-            return { handler: handler, metadata: <T>info.metadata, method: info.methodName };
-        }
-        catch (e) {
-            System.log.error(null, e, `Unable to create handler for domain ${domain}, action ${action}, schema ${schema}`);
-            throw new Error(`Unable to create handler for domain ${domain}, action ${action}, schema ${schema}`);
-        }
-    }
 
     static obfuscateSensibleData(domain: Domain, container: IContainer, result) {
         if (result) {

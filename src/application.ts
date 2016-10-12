@@ -107,7 +107,6 @@ export abstract class Application {
         this._container.injectTransient(MemoryProvider, DefaultServiceNames.Provider);
         this._container.injectInstance(this, DefaultServiceNames.Application);
         this._container.injectSingleton(Metrics, DefaultServiceNames.Metrics);
-        this._container.injectSingleton(ServiceDescriptors, DefaultServiceNames.ServiceDescriptors);
         this._container.injectSingleton(Authentication, DefaultServiceNames.Authentication);
 
         domainName = domainName;
