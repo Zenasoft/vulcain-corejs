@@ -70,6 +70,20 @@
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>Property definition</p>
+					</div>
+					<dl class="tsd-comment-tags">
+						<dt>export</dt>
+						<dd></dd>
+						<dt>interface</dt>
+						<dd><p>PropertyOptions</p>
+						</dd>
+					</dl>
+				</div>
+			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
@@ -86,18 +100,17 @@
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_schemas_annotations_.propertyoptions.html#bind" class="tsd-kind-icon">bind</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_schemas_annotations_.propertyoptions.html#defaultvalue" class="tsd-kind-icon">default<wbr>Value</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_schemas_annotations_.propertyoptions.html#dependson" class="tsd-kind-icon">depends<wbr>On</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_schemas_annotations_.propertyoptions.html#description" class="tsd-kind-icon">description</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_schemas_annotations_.propertyoptions.html#elem" class="tsd-kind-icon">elem</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_schemas_annotations_.propertyoptions.html#iskey" class="tsd-kind-icon">is<wbr>Key</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_schemas_annotations_.propertyoptions.html#item" class="tsd-kind-icon">item</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_schemas_annotations_.propertyoptions.html#meta" class="tsd-kind-icon">meta</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_schemas_annotations_.propertyoptions.html#pattern" class="tsd-kind-icon">pattern</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_schemas_annotations_.propertyoptions.html#required" class="tsd-kind-icon">required</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_schemas_annotations_.propertyoptions.html#sensible" class="tsd-kind-icon">sensible</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_schemas_annotations_.propertyoptions.html#type" class="tsd-kind-icon">type</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_schemas_annotations_.propertyoptions.html#unique" class="tsd-kind-icon">unique</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_schemas_annotations_.propertyoptions.html#validate" class="tsd-kind-icon">validate</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_schemas_annotations_.propertyoptions.html#validators" class="tsd-kind-icon">validators</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_schemas_annotations_.propertyoptions.html#values" class="tsd-kind-icon">values</a></li>
 							</ul>
 						</section>
@@ -112,9 +125,39 @@
 					<div class="tsd-signature tsd-kind-icon">bind<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/workfel/vulcain-corejs/blob/8820fe0/src/schemas/annotations.ts#L35">schemas/annotations.ts:35</a></li>
+							<li>Defined in <a href="https://github.com/workfel/vulcain-corejs/blob/a1b9924/src/schemas/annotations.ts#L94">schemas/annotations.ts:94</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Function to transform an input value. If null or false, the value are ignored.</p>
+						</div>
+						<dl class="tsd-comment-tags">
+							<dt>memberof</dt>
+							<dd><p>PropertyOptions</p>
+							</dd>
+						</dl>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="defaultvalue" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> default<wbr>Value</h3>
+					<div class="tsd-signature tsd-kind-icon">default<wbr>Value<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/workfel/vulcain-corejs/blob/a1b9924/src/schemas/annotations.ts#L123">schemas/annotations.ts:123</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Default value</p>
+						</div>
+						<dl class="tsd-comment-tags">
+							<dt>memberof</dt>
+							<dd><p>PropertyOptions</p>
+							</dd>
+						</dl>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="dependson" class="tsd-anchor"></a>
@@ -122,9 +165,20 @@
 					<div class="tsd-signature tsd-kind-icon">depends<wbr>On<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/workfel/vulcain-corejs/blob/8820fe0/src/schemas/annotations.ts#L36">schemas/annotations.ts:36</a></li>
+							<li>Defined in <a href="https://github.com/workfel/vulcain-corejs/blob/a1b9924/src/schemas/annotations.ts#L101">schemas/annotations.ts:101</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Provide a way to check if a validation should be done.
+							validation are skipped, if the function returns false.</p>
+						</div>
+						<dl class="tsd-comment-tags">
+							<dt>memberof</dt>
+							<dd><p>PropertyOptions</p>
+							</dd>
+						</dl>
+					</div>
 					<div class="tsd-type-declaration">
 						<h4>Type declaration</h4>
 						<ul class="tsd-parameters">
@@ -153,19 +207,22 @@
 					<div class="tsd-signature tsd-kind-icon">description<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/workfel/vulcain-corejs/blob/8820fe0/src/schemas/annotations.ts#L29">schemas/annotations.ts:29</a></li>
+							<li>Defined in <a href="https://github.com/workfel/vulcain-corejs/blob/a1b9924/src/schemas/annotations.ts#L59">schemas/annotations.ts:59</a></li>
 						</ul>
 					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="elem" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> elem</h3>
-					<div class="tsd-signature tsd-kind-icon">elem<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/workfel/vulcain-corejs/blob/8820fe0/src/schemas/annotations.ts#L34">schemas/annotations.ts:34</a></li>
-						</ul>
-					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Property description</p>
+						</div>
+						<dl class="tsd-comment-tags">
+							<dt>type</dt>
+							<dd><p>{string}</p>
+							</dd>
+							<dt>memberof</dt>
+							<dd><p>PropertyOptions</p>
+							</dd>
+						</dl>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="iskey" class="tsd-anchor"></a>
@@ -173,9 +230,22 @@
 					<div class="tsd-signature tsd-kind-icon">is<wbr>Key<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/workfel/vulcain-corejs/blob/8820fe0/src/schemas/annotations.ts#L30">schemas/annotations.ts:30</a></li>
+							<li>Defined in <a href="https://github.com/workfel/vulcain-corejs/blob/a1b9924/src/schemas/annotations.ts#L73">schemas/annotations.ts:73</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Entity key - Only one property by entity can be define.</p>
+						</div>
+						<dl class="tsd-comment-tags">
+							<dt>type</dt>
+							<dd><p>{boolean}</p>
+							</dd>
+							<dt>memberof</dt>
+							<dd><p>PropertyOptions</p>
+							</dd>
+						</dl>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="item" class="tsd-anchor"></a>
@@ -183,29 +253,22 @@
 					<div class="tsd-signature tsd-kind-icon">item<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/workfel/vulcain-corejs/blob/8820fe0/src/schemas/annotations.ts#L31">schemas/annotations.ts:31</a></li>
+							<li>Defined in <a href="https://github.com/workfel/vulcain-corejs/blob/a1b9924/src/schemas/annotations.ts#L66">schemas/annotations.ts:66</a></li>
 						</ul>
 					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="meta" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> meta</h3>
-					<div class="tsd-signature tsd-kind-icon">meta<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/workfel/vulcain-corejs/blob/8820fe0/src/schemas/annotations.ts#L33">schemas/annotations.ts:33</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="pattern" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> pattern</h3>
-					<div class="tsd-signature tsd-kind-icon">pattern<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/workfel/vulcain-corejs/blob/8820fe0/src/schemas/annotations.ts#L28">schemas/annotations.ts:28</a></li>
-						</ul>
-					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Item type property of type &#39;ArrayOf&#39;</p>
+						</div>
+						<dl class="tsd-comment-tags">
+							<dt>type</dt>
+							<dd><p>{string} - A valid type for all elements of the array</p>
+							</dd>
+							<dt>memberof</dt>
+							<dd><p>PropertyOptions</p>
+							</dd>
+						</dl>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="required" class="tsd-anchor"></a>
@@ -213,9 +276,22 @@
 					<div class="tsd-signature tsd-kind-icon">required<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/workfel/vulcain-corejs/blob/8820fe0/src/schemas/annotations.ts#L27">schemas/annotations.ts:27</a></li>
+							<li>Defined in <a href="https://github.com/workfel/vulcain-corejs/blob/a1b9924/src/schemas/annotations.ts#L52">schemas/annotations.ts:52</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>True is this property is required</p>
+						</div>
+						<dl class="tsd-comment-tags">
+							<dt>type</dt>
+							<dd><p>{boolean}</p>
+							</dd>
+							<dt>memberof</dt>
+							<dd><p>PropertyOptions</p>
+							</dd>
+						</dl>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="sensible" class="tsd-anchor"></a>
@@ -223,9 +299,24 @@
 					<div class="tsd-signature tsd-kind-icon">sensible<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/workfel/vulcain-corejs/blob/8820fe0/src/schemas/annotations.ts#L38">schemas/annotations.ts:38</a></li>
+							<li>Defined in <a href="https://github.com/workfel/vulcain-corejs/blob/a1b9924/src/schemas/annotations.ts#L117">schemas/annotations.ts:117</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Define if the property contains sensible data.
+								Sensible datas are obfuscated and are removed from get request.
+							This behavior only works with built-in provider and command.</p>
+						</div>
+						<dl class="tsd-comment-tags">
+							<dt>type</dt>
+							<dd><p>{boolean}</p>
+							</dd>
+							<dt>memberof</dt>
+							<dd><p>PropertyOptions</p>
+							</dd>
+						</dl>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="type" class="tsd-anchor"></a>
@@ -233,9 +324,22 @@
 					<div class="tsd-signature tsd-kind-icon">type<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/workfel/vulcain-corejs/blob/8820fe0/src/schemas/annotations.ts#L25">schemas/annotations.ts:25</a></li>
+							<li>Defined in <a href="https://github.com/workfel/vulcain-corejs/blob/a1b9924/src/schemas/annotations.ts#L38">schemas/annotations.ts:38</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Base type</p>
+						</div>
+						<dl class="tsd-comment-tags">
+							<dt>type</dt>
+							<dd><p>{string} - a valid base type</p>
+							</dd>
+							<dt>memberof</dt>
+							<dd><p>PropertyOptions</p>
+							</dd>
+						</dl>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="unique" class="tsd-anchor"></a>
@@ -243,9 +347,22 @@
 					<div class="tsd-signature tsd-kind-icon">unique<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/workfel/vulcain-corejs/blob/8820fe0/src/schemas/annotations.ts#L32">schemas/annotations.ts:32</a></li>
+							<li>Defined in <a href="https://github.com/workfel/vulcain-corejs/blob/a1b9924/src/schemas/annotations.ts#L80">schemas/annotations.ts:80</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Used to create an unique index key - Supports multiple property keys</p>
+						</div>
+						<dl class="tsd-comment-tags">
+							<dt>type</dt>
+							<dd><p>{boolean}</p>
+							</dd>
+							<dt>memberof</dt>
+							<dd><p>PropertyOptions</p>
+							</dd>
+						</dl>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="validate" class="tsd-anchor"></a>
@@ -253,9 +370,19 @@
 					<div class="tsd-signature tsd-kind-icon">validate<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/workfel/vulcain-corejs/blob/8820fe0/src/schemas/annotations.ts#L37">schemas/annotations.ts:37</a></li>
+							<li>Defined in <a href="https://github.com/workfel/vulcain-corejs/blob/a1b9924/src/schemas/annotations.ts#L108">schemas/annotations.ts:108</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Custom validation. This validation runs after all others validators</p>
+						</div>
+						<dl class="tsd-comment-tags">
+							<dt>memberof</dt>
+							<dd><p>PropertyOptions</p>
+							</dd>
+						</dl>
+					</div>
 					<div class="tsd-type-declaration">
 						<h4>Type declaration</h4>
 						<ul class="tsd-parameters">
@@ -279,14 +406,50 @@
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="validators" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> validators</h3>
+					<div class="tsd-signature tsd-kind-icon">validators<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/workfel/vulcain-corejs/blob/a1b9924/src/schemas/annotations.ts#L87">schemas/annotations.ts:87</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>List of validators - Do not use directly, use @Validator instead</p>
+						</div>
+						<dl class="tsd-comment-tags">
+							<dt>type</dt>
+							<dd><p>{Array<any>}</p>
+							</dd>
+							<dt>memberof</dt>
+							<dd><p>PropertyOptions</p>
+							</dd>
+						</dl>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="values" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagOptional">Optional</span> values</h3>
 					<div class="tsd-signature tsd-kind-icon">values<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/workfel/vulcain-corejs/blob/8820fe0/src/schemas/annotations.ts#L26">schemas/annotations.ts:26</a></li>
+							<li>Defined in <a href="https://github.com/workfel/vulcain-corejs/blob/a1b9924/src/schemas/annotations.ts#L45">schemas/annotations.ts:45</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>List of values for &#39;enum&#39; type</p>
+						</div>
+						<dl class="tsd-comment-tags">
+							<dt>type</dt>
+							<dd><p>{string[]} - An array of values</p>
+							</dd>
+							<dt>memberof</dt>
+							<dd><p>PropertyOptions</p>
+							</dd>
+						</dl>
+					</div>
 				</section>
 			</section>
 		</div>
@@ -315,25 +478,19 @@
 								<a href="_schemas_annotations_.propertyoptions.html#bind" class="tsd-kind-icon">bind</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_schemas_annotations_.propertyoptions.html#defaultvalue" class="tsd-kind-icon">default<wbr>Value</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
 								<a href="_schemas_annotations_.propertyoptions.html#dependson" class="tsd-kind-icon">depends<wbr>On</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
 								<a href="_schemas_annotations_.propertyoptions.html#description" class="tsd-kind-icon">description</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="_schemas_annotations_.propertyoptions.html#elem" class="tsd-kind-icon">elem</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
 								<a href="_schemas_annotations_.propertyoptions.html#iskey" class="tsd-kind-icon">is<wbr>Key</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
 								<a href="_schemas_annotations_.propertyoptions.html#item" class="tsd-kind-icon">item</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="_schemas_annotations_.propertyoptions.html#meta" class="tsd-kind-icon">meta</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="_schemas_annotations_.propertyoptions.html#pattern" class="tsd-kind-icon">pattern</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
 								<a href="_schemas_annotations_.propertyoptions.html#required" class="tsd-kind-icon">required</a>
@@ -349,6 +506,9 @@
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
 								<a href="_schemas_annotations_.propertyoptions.html#validate" class="tsd-kind-icon">validate</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_schemas_annotations_.propertyoptions.html#validators" class="tsd-kind-icon">validators</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
 								<a href="_schemas_annotations_.propertyoptions.html#values" class="tsd-kind-icon">values</a>
@@ -368,6 +528,9 @@
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-external-module">
 						<a href="../modules/_schemas_annotations_.html#reference" class="tsd-kind-icon">Reference</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-external-module">
+						<a href="../modules/_schemas_annotations_.html#validator" class="tsd-kind-icon">Validator</a>
 					</li>
 				</ul>
 			</nav>

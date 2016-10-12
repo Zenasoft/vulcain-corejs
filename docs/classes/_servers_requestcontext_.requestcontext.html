@@ -105,15 +105,12 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="_servers_requestcontext_.requestcontext.html#_cache" class="tsd-kind-icon">_cache</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="_servers_requestcontext_.requestcontext.html#_logger" class="tsd-kind-icon">_logger</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="_servers_requestcontext_.requestcontext.html#_responseheaders" class="tsd-kind-icon">_response<wbr>Headers</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_servers_requestcontext_.requestcontext.html#container" class="tsd-kind-icon">container</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_servers_requestcontext_.requestcontext.html#correlationid" class="tsd-kind-icon">correlation<wbr>Id</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_servers_requestcontext_.requestcontext.html#correlationpath" class="tsd-kind-icon">correlation<wbr>Path</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_servers_requestcontext_.requestcontext.html#headers" class="tsd-kind-icon">headers</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_servers_requestcontext_.requestcontext.html#hostname" class="tsd-kind-icon">host<wbr>Name</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_servers_requestcontext_.requestcontext.html#pipeline" class="tsd-kind-icon">pipeline</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_servers_requestcontext_.requestcontext.html#requestheaders" class="tsd-kind-icon">request<wbr>Headers</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_servers_requestcontext_.requestcontext.html#responsecode" class="tsd-kind-icon">response<wbr>Code</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_servers_requestcontext_.requestcontext.html#tenant" class="tsd-kind-icon">tenant</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_servers_requestcontext_.requestcontext.html#user" class="tsd-kind-icon">user</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><a href="_servers_requestcontext_.requestcontext.html#testtenant" class="tsd-kind-icon">Test<wbr>Tenant</a></li>
@@ -129,11 +126,9 @@
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_servers_requestcontext_.requestcontext.html#addheader" class="tsd-kind-icon">add<wbr>Header</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_servers_requestcontext_.requestcontext.html#dispose" class="tsd-kind-icon">dispose</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_servers_requestcontext_.requestcontext.html#error" class="tsd-kind-icon">error</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_servers_requestcontext_.requestcontext.html#getcommand" class="tsd-kind-icon">get<wbr>Command</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_servers_requestcontext_.requestcontext.html#getresponseheaders" class="tsd-kind-icon">get<wbr>Response<wbr>Headers</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_servers_requestcontext_.requestcontext.html#hasscope" class="tsd-kind-icon">has<wbr>Scope</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_servers_requestcontext_.requestcontext.html#info" class="tsd-kind-icon">info</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_servers_requestcontext_.requestcontext.html#isadmin" class="tsd-kind-icon">is<wbr>Admin</a></li>
@@ -162,7 +157,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/workfel/vulcain-corejs/blob/8820fe0/src/servers/requestContext.ts#L145">servers/requestContext.ts:145</a></li>
+									<li>Defined in <a href="https://github.com/workfel/vulcain-corejs/blob/a1b9924/src/servers/requestContext.ts#L125">servers/requestContext.ts:125</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -191,43 +186,13 @@
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
-					<a name="_cache" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _cache</h3>
-					<div class="tsd-signature tsd-kind-icon">_cache<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Map</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/workfel/vulcain-corejs/blob/8820fe0/src/servers/requestContext.ts#L91">servers/requestContext.ts:91</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
-					<a name="_logger" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _logger</h3>
-					<div class="tsd-signature tsd-kind-icon">_logger<span class="tsd-signature-symbol">:</span> <a href="../interfaces/_servers_requestcontext_.logger.html" class="tsd-signature-type">Logger</a></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/workfel/vulcain-corejs/blob/8820fe0/src/servers/requestContext.ts#L92">servers/requestContext.ts:92</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
-					<a name="_responseheaders" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _response<wbr>Headers</h3>
-					<div class="tsd-signature tsd-kind-icon">_response<wbr>Headers<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Map</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/workfel/vulcain-corejs/blob/8820fe0/src/servers/requestContext.ts#L100">servers/requestContext.ts:100</a></li>
-						</ul>
-					</aside>
-				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="container" class="tsd-anchor"></a>
 					<h3>container</h3>
 					<div class="tsd-signature tsd-kind-icon">container<span class="tsd-signature-symbol">:</span> <a href="../interfaces/_di_resolvers_.icontainer.html" class="tsd-signature-type">IContainer</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/workfel/vulcain-corejs/blob/8820fe0/src/servers/requestContext.ts#L93">servers/requestContext.ts:93</a></li>
+							<li>Defined in <a href="https://github.com/workfel/vulcain-corejs/blob/a1b9924/src/servers/requestContext.ts#L93">servers/requestContext.ts:93</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -237,7 +202,7 @@
 					<div class="tsd-signature tsd-kind-icon">correlation<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/workfel/vulcain-corejs/blob/8820fe0/src/servers/requestContext.ts#L75">servers/requestContext.ts:75</a></li>
+							<li>Defined in <a href="https://github.com/workfel/vulcain-corejs/blob/a1b9924/src/servers/requestContext.ts#L75">servers/requestContext.ts:75</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -257,7 +222,7 @@
 					<div class="tsd-signature tsd-kind-icon">correlation<wbr>Path<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/workfel/vulcain-corejs/blob/8820fe0/src/servers/requestContext.ts#L83">servers/requestContext.ts:83</a></li>
+							<li>Defined in <a href="https://github.com/workfel/vulcain-corejs/blob/a1b9924/src/servers/requestContext.ts#L83">servers/requestContext.ts:83</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -275,26 +240,12 @@
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="pipeline" class="tsd-anchor"></a>
-					<h3>pipeline</h3>
-					<div class="tsd-signature tsd-kind-icon">pipeline<span class="tsd-signature-symbol">:</span> <a href="../enums/_servers_requestcontext_.pipeline.html" class="tsd-signature-type">Pipeline</a></div>
+					<a name="headers" class="tsd-anchor"></a>
+					<h3>headers</h3>
+					<div class="tsd-signature tsd-kind-icon">headers<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/workfel/vulcain-corejs/blob/8820fe0/src/servers/requestContext.ts#L154">servers/requestContext.ts:154</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-						</div>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="requestheaders" class="tsd-anchor"></a>
-					<h3>request<wbr>Headers</h3>
-					<div class="tsd-signature tsd-kind-icon">request<wbr>Headers<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/workfel/vulcain-corejs/blob/8820fe0/src/servers/requestContext.ts#L99">servers/requestContext.ts:99</a></li>
+							<li>Defined in <a href="https://github.com/workfel/vulcain-corejs/blob/a1b9924/src/servers/requestContext.ts#L99">servers/requestContext.ts:99</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -317,23 +268,40 @@
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="responsecode" class="tsd-anchor"></a>
-					<h3>response<wbr>Code</h3>
-					<div class="tsd-signature tsd-kind-icon">response<wbr>Code<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<a name="hostname" class="tsd-anchor"></a>
+					<h3>host<wbr>Name</h3>
+					<div class="tsd-signature tsd-kind-icon">host<wbr>Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/workfel/vulcain-corejs/blob/8820fe0/src/servers/requestContext.ts#L106">servers/requestContext.ts:106</a></li>
+							<li>Defined in <a href="https://github.com/workfel/vulcain-corejs/blob/a1b9924/src/servers/requestContext.ts#L113">servers/requestContext.ts:113</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Used to override default response code (200)</p>
+							<p>Request host name</p>
 						</div>
 						<dl class="tsd-comment-tags">
 							<dt>type</dt>
-							<dd><p>{number}</p>
+							<dd><p>{string}</p>
+							</dd>
+							<dt>memberof</dt>
+							<dd><p>RequestContext</p>
 							</dd>
 						</dl>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="pipeline" class="tsd-anchor"></a>
+					<h3>pipeline</h3>
+					<div class="tsd-signature tsd-kind-icon">pipeline<span class="tsd-signature-symbol">:</span> <a href="../enums/_servers_requestcontext_.pipeline.html" class="tsd-signature-type">Pipeline</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/workfel/vulcain-corejs/blob/a1b9924/src/servers/requestContext.ts#L134">servers/requestContext.ts:134</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+						</div>
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
@@ -342,7 +310,7 @@
 					<div class="tsd-signature tsd-kind-icon">tenant<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/workfel/vulcain-corejs/blob/8820fe0/src/servers/requestContext.ts#L112">servers/requestContext.ts:112</a></li>
+							<li>Defined in <a href="https://github.com/workfel/vulcain-corejs/blob/a1b9924/src/servers/requestContext.ts#L105">servers/requestContext.ts:105</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -362,7 +330,7 @@
 					<div class="tsd-signature tsd-kind-icon">user<span class="tsd-signature-symbol">:</span> <a href="../interfaces/_servers_requestcontext_.usercontext.html" class="tsd-signature-type">UserContext</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/workfel/vulcain-corejs/blob/8820fe0/src/servers/requestContext.ts#L90">servers/requestContext.ts:90</a></li>
+							<li>Defined in <a href="https://github.com/workfel/vulcain-corejs/blob/a1b9924/src/servers/requestContext.ts#L90">servers/requestContext.ts:90</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -382,7 +350,7 @@
 					<div class="tsd-signature tsd-kind-icon">Test<wbr>Tenant<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;_test_&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/workfel/vulcain-corejs/blob/8820fe0/src/servers/requestContext.ts#L67">servers/requestContext.ts:67</a></li>
+							<li>Defined in <a href="https://github.com/workfel/vulcain-corejs/blob/a1b9924/src/servers/requestContext.ts#L67">servers/requestContext.ts:67</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -399,7 +367,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/workfel/vulcain-corejs/blob/8820fe0/src/servers/requestContext.ts#L140">servers/requestContext.ts:140</a></li>
+									<li>Defined in <a href="https://github.com/workfel/vulcain-corejs/blob/a1b9924/src/servers/requestContext.ts#L120">servers/requestContext.ts:120</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -425,7 +393,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/workfel/vulcain-corejs/blob/8820fe0/src/servers/requestContext.ts#L185">servers/requestContext.ts:185</a></li>
+									<li>Defined in <a href="https://github.com/workfel/vulcain-corejs/blob/a1b9924/src/servers/requestContext.ts#L165">servers/requestContext.ts:165</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -448,39 +416,6 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Methods</h2>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="addheader" class="tsd-anchor"></a>
-					<h3>add<wbr>Header</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">add<wbr>Header<span class="tsd-signature-symbol">(</span>name<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/workfel/vulcain-corejs/blob/8820fe0/src/servers/requestContext.ts#L129">servers/requestContext.ts:129</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Add a custom header value to the response</p>
-								</div>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>name: <span class="tsd-signature-type">string</span></h5>
-								</li>
-								<li>
-									<h5>value: <span class="tsd-signature-type">string</span></h5>
-									<div class="tsd-comment tsd-typography">
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="dispose" class="tsd-anchor"></a>
 					<h3>dispose</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
@@ -490,7 +425,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/workfel/vulcain-corejs/blob/8820fe0/src/servers/requestContext.ts#L160">servers/requestContext.ts:160</a></li>
+									<li>Defined in <a href="https://github.com/workfel/vulcain-corejs/blob/a1b9924/src/servers/requestContext.ts#L140">servers/requestContext.ts:140</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -507,7 +442,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/workfel/vulcain-corejs/blob/8820fe0/src/servers/requestContext.ts#L255">servers/requestContext.ts:255</a></li>
+									<li>Defined in <a href="https://github.com/workfel/vulcain-corejs/blob/a1b9924/src/servers/requestContext.ts#L235">servers/requestContext.ts:235</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -541,7 +476,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/workfel/vulcain-corejs/blob/8820fe0/src/servers/requestContext.ts#L244">servers/requestContext.ts:244</a></li>
+									<li>Defined in <a href="https://github.com/workfel/vulcain-corejs/blob/a1b9924/src/servers/requestContext.ts#L224">servers/requestContext.ts:224</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -568,28 +503,6 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="getresponseheaders" class="tsd-anchor"></a>
-					<h3>get<wbr>Response<wbr>Headers</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>Response<wbr>Headers<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Map</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/workfel/vulcain-corejs/blob/8820fe0/src/servers/requestContext.ts#L119">servers/requestContext.ts:119</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Do not use</p>
-								</div>
-							</div>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Map</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="hasscope" class="tsd-anchor"></a>
 					<h3>has<wbr>Scope</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
@@ -599,7 +512,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/workfel/vulcain-corejs/blob/8820fe0/src/servers/requestContext.ts#L203">servers/requestContext.ts:203</a></li>
+									<li>Defined in <a href="https://github.com/workfel/vulcain-corejs/blob/a1b9924/src/servers/requestContext.ts#L183">servers/requestContext.ts:183</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -635,7 +548,7 @@ x-yz         x-*       <span class="hljs-literal">true</span>
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/workfel/vulcain-corejs/blob/8820fe0/src/servers/requestContext.ts#L266">servers/requestContext.ts:266</a></li>
+									<li>Defined in <a href="https://github.com/workfel/vulcain-corejs/blob/a1b9924/src/servers/requestContext.ts#L246">servers/requestContext.ts:246</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -672,7 +585,7 @@ x-yz         x-*       <span class="hljs-literal">true</span>
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/workfel/vulcain-corejs/blob/8820fe0/src/servers/requestContext.ts#L232">servers/requestContext.ts:232</a></li>
+									<li>Defined in <a href="https://github.com/workfel/vulcain-corejs/blob/a1b9924/src/servers/requestContext.ts#L212">servers/requestContext.ts:212</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -694,7 +607,7 @@ x-yz         x-*       <span class="hljs-literal">true</span>
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/workfel/vulcain-corejs/blob/8820fe0/src/servers/requestContext.ts#L278">servers/requestContext.ts:278</a></li>
+									<li>Defined in <a href="https://github.com/workfel/vulcain-corejs/blob/a1b9924/src/servers/requestContext.ts#L258">servers/requestContext.ts:258</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -731,7 +644,7 @@ x-yz         x-*       <span class="hljs-literal">true</span>
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/workfel/vulcain-corejs/blob/8820fe0/src/servers/requestContext.ts#L172">servers/requestContext.ts:172</a></li>
+									<li>Defined in <a href="https://github.com/workfel/vulcain-corejs/blob/a1b9924/src/servers/requestContext.ts#L152">servers/requestContext.ts:152</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -765,7 +678,7 @@ x-yz         x-*       <span class="hljs-literal">true</span>
 					<div class="tsd-signature tsd-kind-icon">Test<wbr>User<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/workfel/vulcain-corejs/blob/8820fe0/src/servers/requestContext.ts#L68">servers/requestContext.ts:68</a></li>
+							<li>Defined in <a href="https://github.com/workfel/vulcain-corejs/blob/a1b9924/src/servers/requestContext.ts#L68">servers/requestContext.ts:68</a></li>
 						</ul>
 					</aside>
 					<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
@@ -774,7 +687,7 @@ x-yz         x-*       <span class="hljs-literal">true</span>
 						<div class="tsd-signature tsd-kind-icon">display<wbr>Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;test&quot;</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/workfel/vulcain-corejs/blob/8820fe0/src/servers/requestContext.ts#L68">servers/requestContext.ts:68</a></li>
+								<li>Defined in <a href="https://github.com/workfel/vulcain-corejs/blob/a1b9924/src/servers/requestContext.ts#L68">servers/requestContext.ts:68</a></li>
 							</ul>
 						</aside>
 					</section>
@@ -784,7 +697,7 @@ x-yz         x-*       <span class="hljs-literal">true</span>
 						<div class="tsd-signature tsd-kind-icon">email<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;test&quot;</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/workfel/vulcain-corejs/blob/8820fe0/src/servers/requestContext.ts#L68">servers/requestContext.ts:68</a></li>
+								<li>Defined in <a href="https://github.com/workfel/vulcain-corejs/blob/a1b9924/src/servers/requestContext.ts#L68">servers/requestContext.ts:68</a></li>
 							</ul>
 						</aside>
 					</section>
@@ -794,7 +707,7 @@ x-yz         x-*       <span class="hljs-literal">true</span>
 						<div class="tsd-signature tsd-kind-icon">id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;test&quot;</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/workfel/vulcain-corejs/blob/8820fe0/src/servers/requestContext.ts#L68">servers/requestContext.ts:68</a></li>
+								<li>Defined in <a href="https://github.com/workfel/vulcain-corejs/blob/a1b9924/src/servers/requestContext.ts#L68">servers/requestContext.ts:68</a></li>
 							</ul>
 						</aside>
 					</section>
@@ -804,7 +717,7 @@ x-yz         x-*       <span class="hljs-literal">true</span>
 						<div class="tsd-signature tsd-kind-icon">name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;test&quot;</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/workfel/vulcain-corejs/blob/8820fe0/src/servers/requestContext.ts#L68">servers/requestContext.ts:68</a></li>
+								<li>Defined in <a href="https://github.com/workfel/vulcain-corejs/blob/a1b9924/src/servers/requestContext.ts#L68">servers/requestContext.ts:68</a></li>
 							</ul>
 						</aside>
 					</section>
@@ -814,7 +727,7 @@ x-yz         x-*       <span class="hljs-literal">true</span>
 						<div class="tsd-signature tsd-kind-icon">scopes<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> =&nbsp;[&quot;*&quot;]</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/workfel/vulcain-corejs/blob/8820fe0/src/servers/requestContext.ts#L68">servers/requestContext.ts:68</a></li>
+								<li>Defined in <a href="https://github.com/workfel/vulcain-corejs/blob/a1b9924/src/servers/requestContext.ts#L68">servers/requestContext.ts:68</a></li>
 							</ul>
 						</aside>
 					</section>
@@ -824,7 +737,7 @@ x-yz         x-*       <span class="hljs-literal">true</span>
 						<div class="tsd-signature tsd-kind-icon">tenant<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;RequestContext.TestTenant</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/workfel/vulcain-corejs/blob/8820fe0/src/servers/requestContext.ts#L68">servers/requestContext.ts:68</a></li>
+								<li>Defined in <a href="https://github.com/workfel/vulcain-corejs/blob/a1b9924/src/servers/requestContext.ts#L68">servers/requestContext.ts:68</a></li>
 							</ul>
 						</aside>
 					</section>
@@ -855,15 +768,6 @@ x-yz         x-*       <span class="hljs-literal">true</span>
 							<li class=" tsd-kind-constructor tsd-parent-kind-class">
 								<a href="_servers_requestcontext_.requestcontext.html#constructor" class="tsd-kind-icon">constructor</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
-								<a href="_servers_requestcontext_.requestcontext.html#_cache" class="tsd-kind-icon">_cache</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
-								<a href="_servers_requestcontext_.requestcontext.html#_logger" class="tsd-kind-icon">_logger</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
-								<a href="_servers_requestcontext_.requestcontext.html#_responseheaders" class="tsd-kind-icon">_response<wbr>Headers</a>
-							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
 								<a href="_servers_requestcontext_.requestcontext.html#container" class="tsd-kind-icon">container</a>
 							</li>
@@ -874,13 +778,13 @@ x-yz         x-*       <span class="hljs-literal">true</span>
 								<a href="_servers_requestcontext_.requestcontext.html#correlationpath" class="tsd-kind-icon">correlation<wbr>Path</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="_servers_requestcontext_.requestcontext.html#headers" class="tsd-kind-icon">headers</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="_servers_requestcontext_.requestcontext.html#hostname" class="tsd-kind-icon">host<wbr>Name</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
 								<a href="_servers_requestcontext_.requestcontext.html#pipeline" class="tsd-kind-icon">pipeline</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="_servers_requestcontext_.requestcontext.html#requestheaders" class="tsd-kind-icon">request<wbr>Headers</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="_servers_requestcontext_.requestcontext.html#responsecode" class="tsd-kind-icon">response<wbr>Code</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
 								<a href="_servers_requestcontext_.requestcontext.html#tenant" class="tsd-kind-icon">tenant</a>
@@ -898,9 +802,6 @@ x-yz         x-*       <span class="hljs-literal">true</span>
 								<a href="_servers_requestcontext_.requestcontext.html#scopes" class="tsd-kind-icon">scopes</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="_servers_requestcontext_.requestcontext.html#addheader" class="tsd-kind-icon">add<wbr>Header</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="_servers_requestcontext_.requestcontext.html#dispose" class="tsd-kind-icon">dispose</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
@@ -908,9 +809,6 @@ x-yz         x-*       <span class="hljs-literal">true</span>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="_servers_requestcontext_.requestcontext.html#getcommand" class="tsd-kind-icon">get<wbr>Command</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="_servers_requestcontext_.requestcontext.html#getresponseheaders" class="tsd-kind-icon">get<wbr>Response<wbr>Headers</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="_servers_requestcontext_.requestcontext.html#hasscope" class="tsd-kind-icon">has<wbr>Scope</a>
