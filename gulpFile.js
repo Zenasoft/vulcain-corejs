@@ -59,7 +59,7 @@ gulp.task("istanbul:hook", function() {
 var typedoc = require("gulp-typedoc");
 gulp.task("typedoc", function () {
     return gulp
-        .src(["src/**/*.ts",
+        .src(["src/index.ts",
             "./typings/index.d.ts"])
         .pipe(typedoc({
             "emitDecoratorMetadata": true,
