@@ -33,6 +33,7 @@ export { EventNotificationMode, ActionMetadata, ActionData, ActionHandlerMetadat
 export { QueryData, QueryActionMetadata, QueryMetadata, QueryResponse } from './pipeline/query';
 export { AbstractActionHandler, AbstractEventHandler, AbstractQueryHandler } from './pipeline/abstractHandlers';
 export { ValidationError, HttpResponse, HttpRedirectResponse } from './pipeline/common';
+export { ScopesDescriptor , ScopeDescription } from './pipeline/scopeDescriptors'
 
 export { AbstractAdapter } from './servers/abstractAdapter';
 export { RequestContext, Pipeline, UserContext } from './servers/requestContext'
