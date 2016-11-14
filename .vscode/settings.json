@@ -2,5 +2,8 @@
 {
     "editor.renderWhitespace": true,
     "files.trimTrailingWhitespace": true,
+    "files.autoSave": "afterDelay",
+    "files.autoSaveDelay": 2000,
+    "typescript.check.workspaceVersion": false,
     "tsimporter.filesToExclude": [".dist/**", "./test/**"]
 }
