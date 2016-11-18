@@ -154,5 +154,16 @@ export let standards = {
                 return this.message;
 
         }
-    }
+    },
+    alphanumeric: {
+        message: "Property '{$propertyName}' must be an url.",
+        validate: function (val, ctx = {locale: 'en-US'}) {
+            if ((typeof val !== "string")) return this.message;
+
+            if (val === undefined) return this.message;
+            if (!validator.isAlphanumeric(val, ctx.locale))
+                return this.message;
+
+        }
+    },
 };

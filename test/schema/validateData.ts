@@ -39,6 +39,14 @@ class UrlModel {
 }
 
 
+@Model()
+class AlphanumericModel {
+    @Property({type: "alphanumeric"})
+    value: string;
+}
+
+
+
 let container = new TestContainer("Test");
 
 describe("Validate data", function () {
@@ -92,7 +100,7 @@ describe("Validate data", function () {
         let schema = domain.getSchema("EmailModel");
         let errors = schema.validate(model);
 
-        expect(errors.length).equals(0,'The email is malformed');
+        expect(errors.length).equals(0, 'The email is malformed');
     });
     it('should validate malformed email value', () => {
 
@@ -105,9 +113,8 @@ describe("Validate data", function () {
     });
 
 
-
     // ---------------
-    // email
+    // url
     it('should validate url value', () => {
 
         let model: UrlModel = {url: "https://myWebsite.com/#ancre/1"};
@@ -117,9 +124,6 @@ describe("Validate data", function () {
 
         expect(errors.length).equals(0);
     });
-
-
-
     it('should validate malformed url value', () => {
 
         let model: UrlModel = {url: "http://site.r"};
@@ -129,4 +133,26 @@ describe("Validate data", function () {
 
         expect(errors.length).equals(1);
     });
+
+    // ---------------
+    // Alphanumeric
+    it('should validate alphanumeric value', () => {
+
+        let model: AlphanumericModel = {value: "abcde1345fghik6789"};
+        let domain = container.get<Domain>("Domain");
+        let schema = domain.getSchema("AlphanumericModel");
+        let errors = schema.validate(model);
+
+        expect(errors.length).equals(0);
+    });
+    it('should validate malformed alphanumeric value', () => {
+
+        let model: AlphanumericModel = {value: "abc123!"};
+        let domain = container.get<Domain>("Domain");
+        let schema = domain.getSchema("AlphanumericModel");
+        let errors = schema.validate(model);
+
+        expect(errors.length).equals(1);
+    });
+
 });
