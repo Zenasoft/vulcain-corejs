@@ -38,11 +38,16 @@ class UrlModel {
     url: string;
 }
 
-
 @Model()
 class AlphanumericModel {
     @Property({type: "alphanumeric"})
     value: string;
+}
+
+@Model()
+class DateIsoModel {
+    @Property({type: "date-iso8601"})
+    date: string;
 }
 
 
@@ -150,6 +155,27 @@ describe("Validate data", function () {
         let model: AlphanumericModel = {value: "abc123!"};
         let domain = container.get<Domain>("Domain");
         let schema = domain.getSchema("AlphanumericModel");
+        let errors = schema.validate(model);
+
+        expect(errors.length).equals(1);
+    });
+
+    // ---------------
+    // Date ISO86
+    it('should validate date ISO8601', () => {
+
+        let model: DateIsoModel = {date: new Date().toISOString()};
+        let domain = container.get<Domain>("Domain");
+        let schema = domain.getSchema("DateIsoModel");
+        let errors = schema.validate(model);
+
+        expect(errors.length).equals(0);
+    });
+    it('should validate malformed date ISO8601', () => {
+
+        let model: DateIsoModel = {date: new Date().toDateString()};
+        let domain = container.get<Domain>("Domain");
+        let schema = domain.getSchema("DateIsoModel");
         let errors = schema.validate(model);
 
         expect(errors.length).equals(1);
