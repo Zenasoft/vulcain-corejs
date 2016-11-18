@@ -1,7 +1,11 @@
 # Micro service framework 
 
-## Generate Documentation
-Generate documentation Typescript 
+# Documentation
+Documentation for the vulcain-corejs API can be found [here](./docs/index.md).
+
+
+## Generate Typedoc  
+Generate Typescript documentation  
 Launch :  
 ```bash 
 $ gulp doc
@@ -17,5 +21,5 @@ $ npm install -g live-server
 
 Visualize :
 ```bash 
-$ live-server docs
+$ live-server ts-doc
 ```

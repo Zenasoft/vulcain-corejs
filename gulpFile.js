@@ -116,7 +116,7 @@ gulp.task("doc", function () {
             "moduleResolution": "node",
             "target": "es6",
             "excludePrivate": true,
-            out: "docs/",
+            out: "ts-doc/",
             name: "Vulcain corejs"
         }))
         ;
