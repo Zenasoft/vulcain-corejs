@@ -1,4 +1,5 @@
 const uuid = require('node-uuid');
+const validator = require('validator');
 
 export let standards = {
     "$ref": {
@@ -138,7 +139,7 @@ export let standards = {
             if ((typeof val !== "string")) return this.message;
 
             if (val === undefined) return this.message;
-            if (!(/^[a-z0-9._-]+@[a-z0-9._-]+\.[a-z]{2,6}$/.test(val)))
+            if (!validator.isEmail(val))
                 return this.message;
 
         }
@@ -149,7 +150,7 @@ export let standards = {
             if ((typeof val !== "string")) return this.message;
 
             if (val === undefined) return this.message;
-            if (!(/[-a-zA-Z0-9@:%_\+.~#?&//=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_\+.~#?&//=]*)?/gi.test(val)))
+            if (!validator.isURL(val))
                 return this.message;
 
         }
