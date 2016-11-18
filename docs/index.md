@@ -2,4 +2,4 @@
 
 WIP
 
-[shema/standards](./schema/standards)
+[shema/standards](./schema/standards.md)
