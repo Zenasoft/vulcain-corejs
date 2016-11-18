@@ -156,7 +156,7 @@ export let standards = {
         }
     },
     alphanumeric: {
-        message: "Property '{$propertyName}' must be an url.",
+        message: "Property '{$propertyName}' must be an alphanumeric.",
         validate: function (val, ctx = {locale: 'en-US'}) {
             if ((typeof val !== "string")) return this.message;
 
@@ -166,4 +166,15 @@ export let standards = {
 
         }
     },
+    'date-iso8601': {
+        message: "Property '{$propertyName}' must be an date on ISO8601 format.",
+        validate: function (val, ctx = {locale: 'en-US'}) {
+            if ((typeof val !== "string")) return this.message;
+
+            if (val === undefined) return this.message;
+            if (!validator.isISO8601(val))
+                return this.message;
+
+        }
+    }
 };
