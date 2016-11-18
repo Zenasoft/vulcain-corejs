@@ -1,28 +1,43 @@
-import { TestContainer } from '../../dist/di/containers';
-import { expect } from 'chai';
-import { Model, Property, Reference, Validator } from '../../dist/schemas/annotations';
-import { Domain } from '../../dist/schemas/schema';
+import {TestContainer} from '../../dist/di/containers';
+import {expect} from 'chai';
+import {Model, Property, Reference, Validator} from '../../dist/schemas/annotations';
+import {Domain} from '../../dist/schemas/schema';
+import {Container} from '../../src/di/containers';
 
 @Model()
 class BaseModel {
-    @Property({ type: "string", required: true })
-    @Validator("length", { min: 2 })
+    @Property({type: "string", required: true})
+    @Validator("length", {min: 2})
     baseText: string;
 }
 
-@Model({ extends: "BaseModel" })
+@Model({extends: "BaseModel"})
 class SimpleModel extends BaseModel {
-    @Property({ type: "string", required: true })
+    @Property({type: "string", required: true})
     text: string;
-    @Property({ type: "number" })
+    @Property({type: "number"})
     number: number;
 }
 
 @Model()
 class AggregateModel {
-    @Reference({ item: "SimpleModel", cardinality: "one" })
+    @Reference({item: "SimpleModel", cardinality: "one"})
     simple: SimpleModel;
 }
+
+
+@Model()
+class EmailModel {
+    @Property({type: "email"})
+    email: string;
+}
+
+@Model()
+class UrlModel {
+    @Property({type: "url"})
+    url: string;
+}
+
 
 let container = new TestContainer("Test");
 
@@ -65,5 +80,53 @@ describe("Validate data", function () {
         let errors = await schema.validateAsync(null, model);
 
         expect(errors.length).equals(0);
+    });
+
+
+    // ---------------
+    // email
+    it('should validate email value', () => {
+
+        let model: EmailModel = {email: "first.name@email.com"};
+        let domain = container.get<Domain>("Domain");
+        let schema = domain.getSchema("EmailModel");
+        let errors = schema.validate(model);
+
+        expect(errors.length).equals(0,'The email is malformed');
+    });
+    it('should validate malformed email value', () => {
+
+        let model: EmailModel = {email: "first.name@email"};
+        let domain = container.get<Domain>("Domain");
+        let schema = domain.getSchema("EmailModel");
+        let errors = schema.validate(model);
+
+        expect(errors.length).equals(1);
+    });
+
+
+
+    // ---------------
+    // email
+    it('should validate url value', () => {
+
+        let model: UrlModel = {url: "https://myWebsite.com/#ancre/1"};
+        let domain = container.get<Domain>("Domain");
+        let schema = domain.getSchema("UrlModel");
+        let errors = schema.validate(model);
+
+        expect(errors.length).equals(0);
+    });
+
+
+
+    it('should validate malformed url value', () => {
+
+        let model: UrlModel = {url: "http://site.r"};
+        let domain = container.get<Domain>("Domain");
+        let schema = domain.getSchema("UrlModel");
+        let errors = schema.validate(model);
+
+        expect(errors.length).equals(1);
     });
 });
