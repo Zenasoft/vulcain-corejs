@@ -7,3 +7,4 @@ dist-test/
 coverage/
 npm-debug.log
 *.tgz
+ts-doc/

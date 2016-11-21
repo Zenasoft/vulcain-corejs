@@ -138,40 +138,35 @@ export let standards = {
         validate: function (val) {
             if ((typeof val !== "string")) return this.message;
 
-            if (val === undefined) return this.message;
             if (!validator.isEmail(val))
                 return this.message;
 
         }
     },
     url: {
+        type: "string",
         message: "Property '{$propertyName}' must be an url.",
         validate: function (val) {
-            if ((typeof val !== "string")) return this.message;
-
-            if (val === undefined) return this.message;
             if (!validator.isURL(val))
                 return this.message;
 
         }
     },
     alphanumeric: {
+        type: "string",
         message: "Property '{$propertyName}' must be an alphanumeric.",
         validate: function (val, ctx = {locale: 'en-US'}) {
-            if ((typeof val !== "string")) return this.message;
 
-            if (val === undefined) return this.message;
             if (!validator.isAlphanumeric(val, ctx.locale))
                 return this.message;
 
         }
     },
     'date-iso8601': {
+        type: "string",
         message: "Property '{$propertyName}' must be an date on ISO8601 format.",
         validate: function (val, ctx = {locale: 'en-US'}) {
-            if ((typeof val !== "string")) return this.message;
 
-            if (val === undefined) return this.message;
             if (!validator.isISO8601(val))
                 return this.message;
 
