@@ -1,11 +1,11 @@
-import { CryptoHelper } from './crypto';
-import { DynamicConfiguration } from './../dynamicConfiguration';
-import { VulcainLogger } from './../log/vulcainLogger';
+import {CryptoHelper} from './crypto';
+import {DynamicConfiguration} from './../dynamicConfiguration';
+import {VulcainLogger} from './../log/vulcainLogger';
 import * as moment from 'moment';
 import * as fs from 'fs';
-import { VulcainManifest } from './../dependencies/annotations';
-import { Conventions } from './../../utils/conventions';
-import { IDynamicProperty } from '../dynamicProperty';
+import {VulcainManifest} from './../dependencies/annotations';
+import {Conventions} from './../../utils/conventions';
+import {IDynamicProperty} from '../dynamicProperty';
 
 /**
  * Static class providing service helper methods
@@ -102,7 +102,8 @@ export class System {
                     }
                 }
             }
-            catch (e) {/*ignore*/ }
+            catch (e) {/*ignore*/
+            }
         }
         return System.isLocal;
     }
@@ -367,14 +368,25 @@ export class System {
     static createUrl(baseurl: string, ...urlSegments: Array<string | any>) {
 
         if (urlSegments) {
-            if (baseurl[baseurl.length - 1] !== "/")
+            if (!baseurl.includes("?") && baseurl[baseurl.length - 1] !== "/")
                 baseurl += "/";
 
-            baseurl += urlSegments.filter((s: any) => typeof s === 'string').map((s: string) => encodeURIComponent(s)).join('/');
+            if (baseurl.includes("?")) {
+                urlSegments.forEach((s: any) => {
+                    if (typeof s === 'string') {
+                        throw new Error('You can\'t have a path on your url after a query string');
+                    }
+                });
+
+            } else {
+                baseurl += urlSegments.filter((s: any) => typeof s === 'string').map((s: string) => encodeURIComponent(s)).join('/');
+            }
+
 
             var query = urlSegments.filter((s: any) => typeof s !== 'string');
+
             if (query.length) {
-                var sep = '?';
+                var sep = baseurl.includes("?") ? "&" : '?';
                 query.forEach((obj: any) => {
                     for (var p in obj) {
                         if (!obj.hasOwnProperty(p)) {
