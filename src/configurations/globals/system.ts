@@ -367,26 +367,25 @@ export class System {
      */
     static createUrl(baseurl: string, ...urlSegments: Array<string | any>) {
 
+        let hasQueryPoint = baseurl.includes("?");
+
         if (urlSegments) {
-            if (!baseurl.includes("?") && baseurl[baseurl.length - 1] !== "/")
+            if (!hasQueryPoint && baseurl[baseurl.length - 1] !== "/")
                 baseurl += "/";
 
-            if (baseurl.includes("?")) {
-                urlSegments.forEach((s: any) => {
-                    if (typeof s === 'string') {
-                        throw new Error('You can\'t have a path on your url after a query string');
-                    }
-                });
+            let paths: Array<string> = urlSegments.filter((s: any) => typeof s === 'string');
 
+            if (hasQueryPoint && paths.length >= 1) {
+                throw new Error('You can\'t have a path on your url after a query string');
             } else {
-                baseurl += urlSegments.filter((s: any) => typeof s === 'string').map((s: string) => encodeURIComponent(s)).join('/');
+                baseurl += paths.map((s: string) => encodeURIComponent(s)).join('/');
             }
 
 
             var query = urlSegments.filter((s: any) => typeof s !== 'string');
 
             if (query.length) {
-                var sep = baseurl.includes("?") ? "&" : '?';
+                var sep = hasQueryPoint ? "&" : '?';
                 query.forEach((obj: any) => {
                     for (var p in obj) {
                         if (!obj.hasOwnProperty(p)) {
