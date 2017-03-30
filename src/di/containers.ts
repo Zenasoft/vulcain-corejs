@@ -22,6 +22,7 @@ import { MockManager } from "../mocks/mockManager";
 import { ZipkinInstrumentation } from '../metrics/zipkinInstrumentation';
 import { ServiceResolver } from '../configurations/globals/serviceResolver';
 import { MetricsWrapper } from '../metrics/metricsWrapper';
+import { SwaggerServiceDescriptor } from '../pipeline/swaggerServiceDescriptions';
 
 /**
  * Component container for dependency injection
@@ -54,6 +55,7 @@ export class Container implements IContainer {
 
         if (!parent) {
             this.injectInstance(new VulcainLogger(), DefaultServiceNames.Logger);
+            this.injectSingleton(SwaggerServiceDescriptor, DefaultServiceNames.SwaggerServiceDescriptor);
             this.injectSingleton(ServiceDescriptors, DefaultServiceNames.ServiceDescriptors);
             this.injectSingleton(ProviderFactory, DefaultServiceNames.ProviderFactory);
             this.injectSingleton(MetricsWrapper, DefaultServiceNames.Metrics);
@@ -106,12 +108,12 @@ export class Container implements IContainer {
      * @param {any} [usage=BusUsage.all]
      */
     useRabbitBusAdapter(address?: string, usage = BusUsage.all) {
-        let uri = System.resolveAlias(address) || DynamicConfiguration.getPropertyValue<string>("rabbit")|| address ;
-        if( !uri ) {
+        let uri = System.resolveAlias(address) || DynamicConfiguration.getPropertyValue<string>("rabbit") || address ;
+        if ( !uri ) {
             System.log.info(null, "no value found for rabbit address. Ignore adapter");
             return;
         }
-        if(!uri.startsWith("amqp://")) {
+        if (!uri.startsWith("amqp://")) {
             uri = "amqp://" + uri;
         }
         let bus = new RabbitAdapter(uri);
@@ -129,11 +131,11 @@ export class Container implements IContainer {
      */
     useMongoProvider(address?: string, mongoOptions?) {
         let uri = System.resolveAlias(address) || DynamicConfiguration.getPropertyValue<string>("mongo") || address;
-        if( !uri ) {
+        if ( !uri ) {
             System.log.info(null, "no value found for mongo address. Ignore adapter");
             return;
         }
-        if(!uri.startsWith("mongodb://")) {
+        if (!uri.startsWith("mongodb://")) {
             uri = "mongodb://" + uri;
         }
         this.injectTransient(MongoProvider, DefaultServiceNames.Provider, uri, mongoOptions);
