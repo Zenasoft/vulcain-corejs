@@ -2,8 +2,8 @@ import { Inject, DefaultServiceNames } from '../di/annotations';
 import { IContainer } from '../di/resolvers';
 import { Domain } from '../schemas/schema';
 import { Model } from '../schemas/annotations';
-import { ServiceDescriptors, ServiceDescription, SchemaDescription, PropertyDescription } from './serviceDescriptions';
-import { DefinitionsObject, SwaggerApiDefinition } from './swaggerApiDefinition';
+import { ServiceDescriptors, ServiceDescription, SchemaDescription, PropertyDescription, ActionDescription } from './serviceDescriptions';
+import { DefinitionsObject, SwaggerApiDefinition, TagObject } from './swaggerApiDefinition';
 
 
 export class SwaggerServiceDescriptor {
@@ -16,10 +16,64 @@ export class SwaggerServiceDescriptor {
 
     async getDescriptionsAsync(serviceDescription: ServiceDescription) {
         this.descriptions = this.initialize();
+        this.descriptions.tags = this.computeTags(serviceDescription.services);
+        this.descriptions.definitions = this.computeDefinitions(serviceDescription.schemas);
 
+        return this.descriptions;
+    }
+
+    private initialize(): SwaggerApiDefinition {
+        return {
+            swagger: '2.0',
+            info: {
+                'version': '1.0.0',
+                'title': this.domain.name
+            },
+            paths: { },
+            definitions: {}
+        };
+    }
+
+    /**
+     * Getting all endpoint Handler (only the first word)
+     * Example : {verb : "customer.myAction" } it's `customer` who is kept
+     * @param services
+     * @return string[]
+     */
+    private computeTags(services: Array<ActionDescription>): TagObject[] {
+        let tags: TagObject[] = [];
+
+        let tagsSet = new Set();
+
+
+        services.forEach((service: ActionDescription) => {
+            //service.verb = 'customer.myAction'
+            // with split we kept only 'customer'
+            //split for getting first word
+            tagsSet.add(service.verb.split('.')[0]);
+        });
+
+        let allTags = [...tagsSet];
+
+        tags = <TagObject[]>allTags.map((tag) => {
+            return {
+                name : tag,
+                description: ''
+            };
+        });
+
+        return tags;
+    }
+
+    /**
+     *
+     * @param schemas
+     * @return DefinitionObject
+     */
+    private computeDefinitions(schemas: Array<SchemaDescription>): DefinitionsObject {
         let definitions = {};
         let currentDef: DefinitionsObject = {};
-        serviceDescription.schemas.forEach((schema: SchemaDescription) => {
+        schemas.forEach((schema: SchemaDescription) => {
 
             let jsonSchema = {
                 properties : {}
@@ -30,7 +84,7 @@ export class SwaggerServiceDescriptor {
                     type: property.type
                 };
 
-                if (property.reference === 'one') {
+                if (property.reference === 'one' || property.reference === 'many') {
                     jsonSchema.properties[property.name].$ref = this.getReferenceDefinition(property.type);
                 }
 
@@ -48,24 +102,8 @@ export class SwaggerServiceDescriptor {
                 type: SwaggerServiceDescriptor.defaultDefinitionType,
                 properties : jsonSchema.properties
             };
-
-
         });
-        this.descriptions.definitions = currentDef;
-
-        return this.descriptions;
-    }
-
-    private initialize(): SwaggerApiDefinition {
-        return {
-            swagger: '2.0',
-            info: {
-                'version': '1.0.0',
-                'title': this.domain.name
-            },
-            paths: { },
-            definitions: {}
-        };
+        return currentDef;
     }
 
     private getReferenceDefinition(definitionName) {
