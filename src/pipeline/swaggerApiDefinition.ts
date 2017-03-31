@@ -113,7 +113,7 @@ export interface OperationObject {
     consumes?: string[];
     produces?: string[];
     parameters?: Parameters;
-    responses: ResponsesObject;
+    responses?: ResponsesObject;
     schemes?: string[];
     deprecated?: boolean;
     security?: SecurityRequirementObject[];
@@ -206,8 +206,8 @@ export interface ParametersDefinitionsObject {
 export type Parameters = (ParameterObject | ReferenceObject | ReferenceParameterObject | GeneralParameterObject)[]
 
 export interface ParameterObject {
-    name: string;
-    'in': string;
+    name?: string;
+    'in'?: string;
     description?: string;
     required?: boolean;
 }
