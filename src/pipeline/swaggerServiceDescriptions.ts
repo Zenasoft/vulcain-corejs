@@ -16,6 +16,8 @@ export class SwaggerServiceDescriptor {
 
     async getDescriptionsAsync(serviceDescription: ServiceDescription) {
         this.descriptions = this.initialize();
+        this.descriptions.info.version = serviceDescription.serviceVersion;
+        this.descriptions.info.title = serviceDescription.serviceName;
         this.descriptions.tags = this.computeTags(serviceDescription.services);
         this.descriptions.definitions = this.computeDefinitions(serviceDescription.schemas);
 
@@ -29,6 +31,9 @@ export class SwaggerServiceDescriptor {
                 'version': '1.0.0',
                 'title': this.domain.name
             },
+            schemes: [
+                'http'
+            ],
             paths: { },
             definitions: {}
         };
