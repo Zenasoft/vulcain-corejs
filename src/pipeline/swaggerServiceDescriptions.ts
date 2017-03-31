@@ -71,6 +71,11 @@ export class SwaggerServiceDescriptor {
         return tags;
     }
 
+    /**
+     * Format the path to swagger json format.
+     * See the documentation here : http://swagger.io/specification/#pathsObject
+     * @param services
+     */
     private computePaths(services: Array<ActionDescription>): PathsObject {
         let paths: PathsObject = {};
 
@@ -100,6 +105,11 @@ export class SwaggerServiceDescriptor {
         return paths;
     }
 
+    /**
+     * Format the json parameters object for swagger
+     *  See the documentation here: http://swagger.io/specification/#parameterObject
+     * @param service
+     */
     private computeParameters(service: ActionDescription): Parameters {
         let parameters: ParameterObject = {};
 
@@ -125,7 +135,8 @@ export class SwaggerServiceDescriptor {
     }
 
     /**
-     *
+     * Format the json definitions for swagger type
+     * See the documentation here : http://swagger.io/specification/#definitionsObject
      * @param schemas
      * @return DefinitionObject
      */

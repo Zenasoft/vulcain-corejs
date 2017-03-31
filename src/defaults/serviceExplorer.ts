@@ -29,7 +29,7 @@ export class ServiceExplorer {
         @Inject(DefaultServiceNames.Container) private container: IContainer) {
     }
 
-    @Query({ outputSchema: "ServiceDescription", description: "Get all service handler description", action: "_serviceDescription" })
+    @Query({ outputSchema: "ServiceDescription", description: "Get all service handler description. You can get the response on swagger format.", action: "_serviceDescription" })
     async getServiceDescriptions(model: ServiceExplorerParameter) {
         let ctx: RequestContext = (<any>this).requestContext;
         if (ctx.publicPath)
