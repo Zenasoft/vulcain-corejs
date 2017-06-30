@@ -103,7 +103,7 @@ export abstract class AbstractHttpCommand {
 
         const mocks = System.getMocks(this.container);
         let result = System.isDevelopment && mocks.enabled && await mocks.applyMockHttpAsync(url, verb);
-        if (result !== undefined) {
+        if (result) {
             System.log.info(this.requestContext, ()=>`Using mock output for (${verb}) ${System.removePasswordFromUrl(url)}`);
             return result;
         }
